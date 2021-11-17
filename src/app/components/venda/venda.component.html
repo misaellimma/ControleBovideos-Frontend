@@ -5,28 +5,28 @@
         <form >
             <label class="form-label">Selecione uma espécie: </label>
             <div class="form-group mb-3">
-                <select class="form-control">
+                <select class="form-select">
                     <option value="">Selecione uma espécie: </option>
                     <option *ngFor="let especie of especies" value="{{ especie.id }}" (click)="carregarRebanho(2)">{{ especie.descricao }}</option>
                 </select>
             </div>
             <label class="form-label">Selecione o rebanho de origem: </label>
             <div class="form-group mb-3">
-                <select class="form-control" name="" id="">
+                <select class="form-select" name="" id="">
                     <option value="">Selecione o rebanho de origem: </option>
                     <option *ngFor="let rebanho of rebanhos" value="" onchange="">{{rebanho.id}}</option>
                 </select>
             </div>
             <label class="form-label">Selecione o rebanho de destino: </label>
             <div class="form-group mb-3">
-                <select class="form-control" name="" id="">
+                <select class="form-select" name="" id="">
                     <option value="">Selecione o rebanho de destino: </option>
                     <option value=""></option>
                 </select>
             </div>
             <label class="form-label">Selecione uma finalidade de venda: </label>
             <div class="form-group mb-3">
-                <select class="form-control" name="" id="">
+                <select class="form-select" name="" id="">
                     <option value="">Selecione uma finalidade de venda</option>
                     <option *ngFor="let finalidade of finalidades" value="{{ finalidade.id }}">{{ finalidade.descricao }}</option>
                 </select>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AnimalComponent } from './components/animal/animal.component';
+import { AnimalComponent } from './components/animal/animal/animal.component';
 import { ProdutorComponent } from './components/produtor/produtor.component';
 import { PropriedadeComponent } from './components/propriedade/propriedade.component';
 import { RegistroVacinaComponent } from './components/registro-vacina/registro-vacina.component';
