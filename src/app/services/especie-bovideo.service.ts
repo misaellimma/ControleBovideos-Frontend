@@ -12,8 +12,8 @@ export class EspecieBovideoService {
 
   constructor(private http:HttpClient) { }
 
-  get(): Observable<any>{
-    return this.http.get(API);
+  get(): Observable<EspecieBovideo[]>{
+    return this.http.get<EspecieBovideo[]>(API);
   }
 
   GetId(id: number): Observable<any>{

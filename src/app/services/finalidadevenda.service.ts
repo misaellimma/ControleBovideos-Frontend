@@ -12,8 +12,8 @@ export class FinalidadevendaService {
 
   constructor(private http:HttpClient) { }
 
-  get(): Observable<any>{
-    return this.http.get(API);
+  get(): Observable<FinalidadeVenda[]>{
+    return this.http.get<FinalidadeVenda[]>(API);
   }
 
   GetId(id: number): Observable<any>{

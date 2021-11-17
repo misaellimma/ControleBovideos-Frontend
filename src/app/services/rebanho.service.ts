@@ -16,8 +16,12 @@ export class RebanhoService {
     return this.http.get<Rebanho[]>(API);
   }
 
+  GetEspecie(id: number): Observable<Rebanho[]>{
+    return this.http.get<Rebanho[]>(`${API}especie=${id}`);
+  }
+
   GetId(id: number): Observable<Rebanho[]>{
-    return this.http.get<Rebanho[]>(`${API}/$id`);
+    return this.http.get<Rebanho[]>(`${API}/${id}`);
   }
 
   GetProdutor(idprodutor: number): Observable<any>{
