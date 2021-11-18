@@ -1,6 +1,6 @@
-export interface Produtor {
-    id: number
-    id_endereco: number
-    nome: string
-    cpf: string
+export class Produtor {
+    id: number = 0;
+    id_endereco: number = 0
+    nome: string = ''
+    cpf: string = ''
 }

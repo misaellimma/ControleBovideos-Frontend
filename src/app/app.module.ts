@@ -13,7 +13,6 @@ import { AnimalCancelarComponent } from './components/animal/animal-cancelar/ani
 import { AnimalProdutorComponent } from './components/animal/animal-produtor/animal-produtor.component';
 import { AnimalPropriedadeComponent } from './components/animal/animal-propriedade/animal-propriedade.component';
 import { ProdutorEditarComponent } from './components/produtor/produtor-editar/produtor-editar.component';
-import { ProdutorCpfComponent } from './components/produtor/produtor-cpf/produtor-cpf.component';
 import { ProdutorTodosComponent } from './components/produtor/produtor-todos/produtor-todos.component';
 import { PropriedadeEditarComponent } from './components/propriedade/propriedade-editar/propriedade-editar.component';
 import { PropriedadeInscricaoComponent } from './components/propriedade/propriedade-inscricao/propriedade-inscricao.component';
@@ -24,6 +23,7 @@ import { VendaCancelarComponent } from './components/venda/venda-cancelar/venda-
 import { VendaVendasComponent } from './components/venda/venda-vendas/venda-vendas.component';
 import { VendaComprasComponent } from './components/venda/venda-compras/venda-compras.component';
 import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadastrar/produtor-cadastrar.component';
+import { ProdutorDetalhesComponent } from './components/produtor/produtor-detalhes/produtor-detalhes.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadas
     AnimalProdutorComponent,
     AnimalPropriedadeComponent,
     ProdutorEditarComponent,
-    ProdutorCpfComponent,
+    ProdutorDetalhesComponent,
     ProdutorTodosComponent,
     PropriedadeEditarComponent,
     PropriedadeInscricaoComponent,
@@ -47,7 +47,8 @@ import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadas
     VendaCancelarComponent,
     VendaVendasComponent,
     VendaComprasComponent,
-    ProdutorCadastrarComponent
+    ProdutorCadastrarComponent,
+    ProdutorDetalhesComponent
   ],
   imports: [
     BrowserModule,

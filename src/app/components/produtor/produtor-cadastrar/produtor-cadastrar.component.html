@@ -5,11 +5,14 @@
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group mb-3">
                 <label class="form-label">Nome: </label>
-                <input class="form-control" type="text" formControlName="nome">
+                <input class="form-control" type="text" formControlName="nome" required>
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">CPF: </label>
-                <input class="form-control" type="number" formControlName="cpf">
+                <input class="form-control" type="text" formControlName="cpf" (blur)="verificaCpf()">
+                <div *ngIf="validaCpf" class="text-danger">
+                    {{ msgValidaCpf }}
+                </div>
             </div>
             <label class="form-label">Selecione o município: </label>
             <div class="form-group mb-3">
@@ -26,7 +29,10 @@
                 <label class="form-label">Numero: </label>
                 <input class="form-control" type="number" formControlName="numero">
             </div>
-            <button type="submit" class="btn btn-success">Salvar</button>
+            <div class=" mx-auto">
+                <a (click)="voltar()" class="btn btn-outline-danger mt-3">Voltar</a>
+                <button type="submit" class="btn btn-outline-success mx-3 mt-3">Salvar</button>
+            </div>
         </form>
     </div>
 </div>

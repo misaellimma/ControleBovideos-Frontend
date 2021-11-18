@@ -26,10 +26,14 @@ export class ProdutorComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.produtores.length);
+    this.getAll()
   }
   getAll(){
-    this.service.get().subscribe(data => {this.produtores = data, this.ocultar = true})
+    this.service.get().subscribe(
+      data => {
+        this.produtores = data, 
+        this.ocultar = true
+      })
   }
 
   getCpf(cpf:string){
@@ -42,9 +46,8 @@ export class ProdutorComponent implements OnInit {
       error => {
         this.errorMessage = error.error,
         this.erro = true
-        console.log(error);
-      }
-      )
+      })
+
   }
 
   onSubmit(){
@@ -53,10 +56,8 @@ export class ProdutorComponent implements OnInit {
     this.cpf = this.form.value
     if(this.form.invalid){
       this.getAll()
-      return
+    }else{
+      this.getCpf(this.cpf.cpf)    
     }
-    this.getCpf(this.cpf.cpf)
-    console.log(this.cpf);
-    
   }
 }

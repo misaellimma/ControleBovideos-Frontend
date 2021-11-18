@@ -24,7 +24,11 @@ export class EnderecoService {
     return this.http.post<Endereco>(API, endereco)
   }
 
-  Update(endereco: Endereco): Observable<Endereco>{
-    return this.http.put<Endereco>(API, endereco)
+  Update(id:number, endereco: Endereco): Observable<Endereco>{
+    return this.http.put<Endereco>(API + id, endereco)
+  }
+
+  Delete(id: number): Observable<any>{
+    return this.http.delete(API + id)
   }
 }

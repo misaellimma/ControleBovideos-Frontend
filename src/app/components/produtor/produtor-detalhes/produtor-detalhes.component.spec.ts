@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProdutorCpfComponent } from './produtor-cpf.component';
+import { ProdutorDetalhesComponent } from './produtor-detalhes.component';
 
-describe('ProdutorCpfComponent', () => {
-  let component: ProdutorCpfComponent;
-  let fixture: ComponentFixture<ProdutorCpfComponent>;
+describe('ProdutorDetalhesComponent', () => {
+  let component: ProdutorDetalhesComponent;
+  let fixture: ComponentFixture<ProdutorDetalhesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProdutorCpfComponent ]
+      declarations: [ ProdutorDetalhesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProdutorCpfComponent);
+    fixture = TestBed.createComponent(ProdutorDetalhesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -24,6 +24,9 @@ export class ProdutorService {
     return this.http.get(API + 'cpf=' + cpf)
   }
 
+  ValidaCpf(cpf: string): Observable<any>{
+    return this.http.get(API + 'validacpf=' + cpf)
+  }
   GetUsuario(id: number): Observable<Produtor>{
     return this.http.get<Produtor>(API + 'usuario=' + id)
   }
@@ -32,7 +35,7 @@ export class ProdutorService {
     return this.http.post<Produtor>(API, produtor);
   }
 
-  Update(produtor: Produtor): Observable<Produtor>{
-    return this.http.put<Produtor>(API, produtor)
+  Update(id:number, produtor: Produtor): Observable<Produtor>{
+    return this.http.put<Produtor>(API + id, produtor)
   }
 }

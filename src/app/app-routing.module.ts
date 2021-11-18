@@ -5,7 +5,7 @@ import { AnimalProdutorComponent } from './components/animal/animal-produtor/ani
 import { AnimalPropriedadeComponent } from './components/animal/animal-propriedade/animal-propriedade.component';
 import { AnimalComponent } from './components/animal/animal/animal.component';
 import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadastrar/produtor-cadastrar.component';
-import { ProdutorCpfComponent } from './components/produtor/produtor-cpf/produtor-cpf.component';
+import { ProdutorDetalhesComponent } from './components/produtor/produtor-detalhes/produtor-detalhes.component';
 import { ProdutorEditarComponent } from './components/produtor/produtor-editar/produtor-editar.component';
 import { ProdutorTodosComponent } from './components/produtor/produtor-todos/produtor-todos.component';
 import { ProdutorComponent } from './components/produtor/produtor/produtor.component';
@@ -28,8 +28,8 @@ const routes: Routes = [
   { path: "animal-propriedade", component: AnimalPropriedadeComponent},
   { path: "produtor", component: ProdutorComponent},
   { path: "produtor-cadastrar", component: ProdutorCadastrarComponent},
-  { path: "produtor-editar", component: ProdutorEditarComponent},
-  { path: "produtor-cpf", component: ProdutorCpfComponent},
+  { path: "produtor-editar/:id", component: ProdutorEditarComponent},
+  { path: "produtor/:id", component: ProdutorDetalhesComponent},
   { path: "produtor-todos", component: ProdutorTodosComponent},
   { path: "propriedade", component: PropriedadeComponent},
   { path: "propriedade-editar", component: PropriedadeEditarComponent},
