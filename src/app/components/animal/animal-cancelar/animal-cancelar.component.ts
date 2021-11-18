@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutorService } from 'src/app/services/produtor.service';
 
 @Component({
   selector: 'app-animal-cancelar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimalCancelarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private serviceProdutor:ProdutorService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  
 }

@@ -23,6 +23,7 @@ import { RegistroVacinaPropriedadeComponent } from './components/registro-vacina
 import { VendaCancelarComponent } from './components/venda/venda-cancelar/venda-cancelar.component';
 import { VendaVendasComponent } from './components/venda/venda-vendas/venda-vendas.component';
 import { VendaComprasComponent } from './components/venda/venda-compras/venda-compras.component';
+import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadastrar/produtor-cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { VendaComprasComponent } from './components/venda/venda-compras/venda-co
     RegistroVacinaPropriedadeComponent,
     VendaCancelarComponent,
     VendaVendasComponent,
-    VendaComprasComponent
+    VendaComprasComponent,
+    ProdutorCadastrarComponent
   ],
   imports: [
     BrowserModule,

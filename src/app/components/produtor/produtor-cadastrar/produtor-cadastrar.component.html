@@ -2,28 +2,29 @@
 
 <div  class="card my-3">
     <div class="card-body register-form">
-        <form >
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group mb-3">
                 <label class="form-label">Nome: </label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" formControlName="nome">
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">CPF: </label>
-                <input class="form-control" type="number">
+                <input class="form-control" type="number" formControlName="cpf">
             </div>
             <label class="form-label">Selecione o município: </label>
             <div class="form-group mb-3">
-                <select class="form-select" name="" id="">
+                <select class="form-select" formControlName="id_municipio">
                     <option value="">Selecione o município</option>
+                    <option *ngFor="let municipio of municipios" value="{{ municipio.id }}">{{ municipio.nome }}</option>
                 </select>
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">Rua: </label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" formControlName="rua">
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">Numero: </label>
-                <input class="form-control" type="number">
+                <input class="form-control" type="number" formControlName="numero">
             </div>
             <button type="submit" class="btn btn-success">Salvar</button>
         </form>

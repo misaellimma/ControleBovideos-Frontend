@@ -21,7 +21,7 @@ export class EnderecoService {
   }
 
   Add(endereco: Endereco): Observable<Endereco>{
-    return this.http.post<Endereco>(API, endereco);
+    return this.http.post<Endereco>(API, endereco)
   }
 
   Update(endereco: Endereco): Observable<Endereco>{

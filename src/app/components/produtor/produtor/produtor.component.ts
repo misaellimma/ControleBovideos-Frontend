@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Produtor } from 'src/app/models/produtor';
+import { ProdutorService } from 'src/app/services/produtor.service';
 
 @Component({
   selector: 'app-produtor',
@@ -7,9 +10,53 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutorComponent implements OnInit {
 
-  constructor() { }
+  ocultar:boolean = false
+  produtores:Produtor[] = []
+  form:FormGroup
+  cpf:any
+  errorMessage = ""
+  erro :boolean = false
+  constructor(
+    private service:ProdutorService,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      cpf: ['', Validators.required]
+    })
+   }
 
   ngOnInit(): void {
+    console.log(this.produtores.length);
+  }
+  getAll(){
+    this.service.get().subscribe(data => {this.produtores = data, this.ocultar = true})
   }
 
+  getCpf(cpf:string){
+    this.produtores = []
+    this.service.GetCpf(cpf).subscribe(
+      data => {
+        this.produtores.push(data)
+        this.ocultar = true
+      },
+      error => {
+        this.errorMessage = error.error,
+        this.erro = true
+        console.log(error);
+      }
+      )
+  }
+
+  onSubmit(){
+    this.ocultar = false
+    this.erro = false
+    this.cpf = this.form.value
+    if(this.form.invalid){
+      this.getAll()
+      return
+    }
+    this.getCpf(this.cpf.cpf)
+    console.log(this.cpf);
+    
+  }
 }

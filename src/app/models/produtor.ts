@@ -3,5 +3,4 @@ export interface Produtor {
     id_endereco: number
     nome: string
     cpf: string
-    id_usuario: number
 }

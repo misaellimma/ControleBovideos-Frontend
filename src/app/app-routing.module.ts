@@ -4,6 +4,7 @@ import { AnimalCancelarComponent } from './components/animal/animal-cancelar/ani
 import { AnimalProdutorComponent } from './components/animal/animal-produtor/animal-produtor.component';
 import { AnimalPropriedadeComponent } from './components/animal/animal-propriedade/animal-propriedade.component';
 import { AnimalComponent } from './components/animal/animal/animal.component';
+import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadastrar/produtor-cadastrar.component';
 import { ProdutorCpfComponent } from './components/produtor/produtor-cpf/produtor-cpf.component';
 import { ProdutorEditarComponent } from './components/produtor/produtor-editar/produtor-editar.component';
 import { ProdutorTodosComponent } from './components/produtor/produtor-todos/produtor-todos.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: "animal-produtor", component: AnimalProdutorComponent},
   { path: "animal-propriedade", component: AnimalPropriedadeComponent},
   { path: "produtor", component: ProdutorComponent},
+  { path: "produtor-cadastrar", component: ProdutorCadastrarComponent},
   { path: "produtor-editar", component: ProdutorEditarComponent},
   { path: "produtor-cpf", component: ProdutorCpfComponent},
   { path: "produtor-todos", component: ProdutorTodosComponent},
