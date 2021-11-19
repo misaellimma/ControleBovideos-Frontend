@@ -7,6 +7,8 @@ import { Produtor } from 'src/app/models/produtor';
 import { EnderecoService } from 'src/app/services/endereco.service';
 import { MunicipioService } from 'src/app/services/municipio.service';
 import { ProdutorService } from 'src/app/services/produtor.service';
+import { Propriedade } from 'src/app/models/propriedade';
+import { PropriedadeService } from 'src/app/services/propriedade.service';
 
 @Component({
   selector: 'app-produtor-detalhes',
@@ -33,11 +35,14 @@ export class ProdutorDetalhesComponent implements OnInit {
     id: 0,
     nome: ""
   }
+  propbool:boolean = false
+  propriedades:Propriedade[] = []
 
   constructor(
     private service: ProdutorService,
     private municipioService:MunicipioService,
     private enderecoService:EnderecoService,
+    private propriedadeService:PropriedadeService,
     private location: Location, 
     private route: ActivatedRoute
   ) { }
@@ -54,6 +59,7 @@ export class ProdutorDetalhesComponent implements OnInit {
         this.produtor = data
         this.getEndereco(data.id_endereco)
       })
+      this.getPropriedades(id)
   }
 
   getEndereco(id:number){
@@ -65,6 +71,17 @@ export class ProdutorDetalhesComponent implements OnInit {
   }
   getMunicipio(id: number){
     this.municipioService.GetId(id).subscribe(data => this.municipio = data)
+  }
+
+  getPropriedades(id:number){
+    this.propriedadeService.GetProdutor(id).subscribe(
+      data => {
+        this.propriedades = data
+        if(data.length > 0){
+          this.propbool = true
+        }
+      }
+    )
   }
 
   voltar(){
