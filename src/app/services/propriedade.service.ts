@@ -23,6 +23,9 @@ export class PropriedadeService {
   GetInscricao(inscricao: string): Observable<any>{
     return this.http.get(API + 'inscricao=' + inscricao)
   }
+  GetValidaInscricao(inscricao: string): Observable<any>{
+    return this.http.get(API + 'validainscricao=' + inscricao)
+  }
 
   GetProdutor(idprodutor: number): Observable<any>{
     return this.http.get(API + 'idprodutor=' + idprodutor)
@@ -32,7 +35,7 @@ export class PropriedadeService {
     return this.http.post<Propriedade>(API, propriedade);
   }
 
-  Update(propriedade: Propriedade): Observable<Propriedade>{
-    return this.http.put<Propriedade>(API, propriedade)
+  Update(id: number, propriedade: Propriedade): Observable<Propriedade>{
+    return this.http.put<Propriedade>(API + id, propriedade)
   }
 }

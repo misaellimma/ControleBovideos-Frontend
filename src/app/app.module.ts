@@ -13,10 +13,7 @@ import { AnimalCancelarComponent } from './components/animal/animal-cancelar/ani
 import { AnimalProdutorComponent } from './components/animal/animal-produtor/animal-produtor.component';
 import { AnimalPropriedadeComponent } from './components/animal/animal-propriedade/animal-propriedade.component';
 import { ProdutorEditarComponent } from './components/produtor/produtor-editar/produtor-editar.component';
-import { ProdutorTodosComponent } from './components/produtor/produtor-todos/produtor-todos.component';
 import { PropriedadeEditarComponent } from './components/propriedade/propriedade-editar/propriedade-editar.component';
-import { PropriedadeInscricaoComponent } from './components/propriedade/propriedade-inscricao/propriedade-inscricao.component';
-import { PropriedadeProdutorComponent } from './components/propriedade/propriedade-produtor/propriedade-produtor.component';
 import { RegistroVacinaCancelarComponent } from './components/registro-vacina/registro-vacina-cancelar/registro-vacina-cancelar.component';
 import { RegistroVacinaPropriedadeComponent } from './components/registro-vacina/registro-vacina-propriedade/registro-vacina-propriedade.component';
 import { VendaCancelarComponent } from './components/venda/venda-cancelar/venda-cancelar.component';
@@ -24,6 +21,8 @@ import { VendaVendasComponent } from './components/venda/venda-vendas/venda-vend
 import { VendaComprasComponent } from './components/venda/venda-compras/venda-compras.component';
 import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadastrar/produtor-cadastrar.component';
 import { ProdutorDetalhesComponent } from './components/produtor/produtor-detalhes/produtor-detalhes.component';
+import { PropriedadeDetalhesComponent } from './components/propriedade/propriedade-detalhes/propriedade-detalhes.component';
+import { PropriedadeCadastrarComponent } from './components/propriedade/propriedade-cadastrar/propriedade-cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -38,17 +37,16 @@ import { ProdutorDetalhesComponent } from './components/produtor/produtor-detalh
     AnimalPropriedadeComponent,
     ProdutorEditarComponent,
     ProdutorDetalhesComponent,
-    ProdutorTodosComponent,
     PropriedadeEditarComponent,
-    PropriedadeInscricaoComponent,
-    PropriedadeProdutorComponent,
     RegistroVacinaCancelarComponent,
     RegistroVacinaPropriedadeComponent,
     VendaCancelarComponent,
     VendaVendasComponent,
     VendaComprasComponent,
     ProdutorCadastrarComponent,
-    ProdutorDetalhesComponent
+    ProdutorDetalhesComponent,
+    PropriedadeDetalhesComponent,
+    PropriedadeCadastrarComponent
   ],
   imports: [
     BrowserModule,

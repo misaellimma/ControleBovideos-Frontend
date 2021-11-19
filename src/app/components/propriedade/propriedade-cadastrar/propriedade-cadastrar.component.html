@@ -1,0 +1,42 @@
+<h2>Cadastrar propriedade</h2>
+
+<div  class="card my-3">
+    <div class="card-body register-form">
+        <form >
+            <div class="form-group mb-3">
+                <label class="form-label">Informe o CPF do produtor: </label>
+                <input (blur)="verificaCpf()" class="form-control me-2" type="text" placeholder="000.000.000-00" name="cpf" [(ngModel)]="produtor.cpf">
+            </div>
+            <div class="alert alert-danger" *ngIf="validaCpf">
+                {{msgValidaCpf}}
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Informe a Inscrição Estadual: </label>
+                <input (blur)="verificaInscricao()" class="form-control me-2" type="search" placeholder="000.000.000" name="incricao_estadual" [(ngModel)]="propriedade.incricao_estadual">
+            </div>
+            <div class="alert alert-danger" *ngIf="validaInscricao">
+                {{msgValidaInscricao}}
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Nome da propriedade: </label>
+                <input class="form-control me-2" type="search" placeholder="ex. Fazenda" name="nome_propriedade" [(ngModel)]="propriedade.nome_propriedade">
+            </div>
+            <div class="alert alert-danger" *ngIf="validaNome">
+                {{msgValidaNome}}
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Selecione o município: </label>
+                <select class="form-select" id="id_municipio" name="id_municipio" [(ngModel)]="propriedade.id_municipio">
+                    <option value="">Selecione um município</option>
+                    <option value=""></option>
+                    <option *ngFor="let m of municipios" value="{{ m.id }}">{{ m.nome }}</option>
+                </select>
+            </div>
+            <div class="alert alert-danger" *ngIf="validaMunicipio">
+                {{msgValidaMunicipio}}
+            </div>
+            <button (click)="back()" class="btn btn-outline-dark mt-3">Voltar</button>
+            <button (click)="save()" class="btn btn-outline-success mt-3 mx-3">Salvar</button>
+        </form>
+    </div>
+</div>

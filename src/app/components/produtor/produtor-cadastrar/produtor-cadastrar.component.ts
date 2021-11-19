@@ -98,6 +98,7 @@ export class ProdutorCadastrarComponent implements OnInit {
       error => {console.log(error)
       }
     )
+    this.voltar()
   }
 
   verificaCpf(){

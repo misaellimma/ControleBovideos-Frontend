@@ -1,7 +1,7 @@
-export interface Propriedade {
-    id?: number
-    id_produtor: number
-    id_municipio: number
-    incricao_estadual: string
-    nome_propriedade: string
+export class Propriedade {
+    id:Number = 0;
+    id_produtor:Number = 0;
+    id_municipio: Number = 0;
+    nome_propriedade: string = "";
+    incricao_estadual: string = "";
 }

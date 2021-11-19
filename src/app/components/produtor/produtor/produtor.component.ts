@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Produtor } from 'src/app/models/produtor';
+import { Propriedade } from 'src/app/models/propriedade';
 import { ProdutorService } from 'src/app/services/produtor.service';
+import { PropriedadeService } from 'src/app/services/propriedade.service';
 
 @Component({
   selector: 'app-produtor',
@@ -16,6 +18,7 @@ export class ProdutorComponent implements OnInit {
   cpf:any
   errorMessage = ""
   erro :boolean = false
+  propriedades:Propriedade[] = []
   constructor(
     private service:ProdutorService,
     private formBuilder: FormBuilder
@@ -35,6 +38,8 @@ export class ProdutorComponent implements OnInit {
       })
   }
 
+  
+
   getCpf(cpf:string){
     this.produtores = []
     this.service.GetCpf(cpf).subscribe(
@@ -46,7 +51,6 @@ export class ProdutorComponent implements OnInit {
         this.errorMessage = error.error,
         this.erro = true
       })
-
   }
 
   onSubmit(){
