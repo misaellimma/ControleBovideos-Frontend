@@ -1,0 +1,44 @@
+<h2>Registrar vacina</h2>
+
+<div  class="card my-3">
+    <div class="card-body register-form">
+        <form >
+            <div class="form-group mb-3">
+                <label class="form-label">Informe a Incrição Estadual da propriedade: </label>
+                <input (blur)="getInscricao()" class="form-control me-2" type="search" placeholder="000.000.000" aria-label="Search" name="incricao_estadual" [(ngModel)]="propriedade.incricao_estadual">
+                <div class="text-danger" *ngIf="validaInscricao">
+                    {{msgValidaInscricao}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Selecione um rebanho: </label>
+                <select class="form-select"  name="id_rebanho" [(ngModel)]="registroVacina.id_rebanho">
+                    <option value="">Selecione um rebanho</option>
+                    <option *ngFor="let rebanho of rebanhos" value="{{ rebanho.id }}">{{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</option>
+                </select>
+                <div class="text-danger" *ngIf="validaRebanho">
+                    {{msgValidaRebanho}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Selecione uma vacina: </label>
+                <select class="form-select" name="id_vacina" [(ngModel)]="registroVacina.id_vacina">
+                    <option value="">Selecione uma vacina</option>
+                    <option *ngFor="let vacina of vacinas" value="{{ vacina.id }}">{{ vacina.nome }}</option>
+                </select>
+                <div class="text-danger" *ngIf="validaVacina">
+                    {{msgValidaVacina}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Quantidade de animais vacinados: </label>
+                <input class="form-control" type="number" name="qtde_vacinado" [(ngModel)]="registroVacina.qtde_vacinado">
+                <div class="text-danger" *ngIf="validaQtde">
+                    {{msgValidaQtde}}
+                </div>
+            </div>
+            <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>
+            <button (click)="save()" class="btn btn-outline-success mx-3">Salvar</button>
+        </form>
+    </div>
+</div>

@@ -1,29 +1,53 @@
-<p>animal-cadastrar works!</p>
-<h2>Cadastrar Rebanho</h2>
 
+<h2>Cadastrar Rebanho</h2>
 <div  class="card my-3">
     <div class="card-body register-form">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <label class="form-label">Selecione uma espécie: </label>
+        <form >
             <div class="form-group mb-3">
-                <select class="form-select" formControlName="id_especie">
-                    <option value="">Selecione uma espécie</option>
+                <label class="form-label">Informe o CPF do produtor: </label>
+                <input (blur)="getCpf()" class="form-control me-2" type="search" placeholder="000.000.000-00" aria-label="Search" name="cpf" [(ngModel)]="produtor.cpf">
+                <div class="text-danger" *ngIf="validaCpf">
+                    {{msgValidaCpf}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Selecione uma propriedade: </label>
+                <select class="form-select" name="id_propriedade" [(ngModel)]="rebanho.id_propriedade">
+                    <option *ngFor="let propriedade of propriedades" value="{{ propriedade.id }}" name="id_propriedade">{{ propriedade.nome_propriedade }}</option>  
+                </select>
+                <div class="text-danger" *ngIf="validaPropriedade">
+                    {{msgValidaPropriedade}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Selecione uma espécie: </label>
+                <select class="form-select" name="id_especie" [(ngModel)]="rebanho.id_especie">
                     <option *ngFor="let especie of especies" value="{{ especie.id }}">{{ especie.descricao }}</option>
                 </select>
-            </div>
-            <label class="form-label">Selecione uma propriedade: </label>
-            <div class="form-group mb-3">
-                <select class="form-select" formControlName="id_propriedade">
-                    <option value="">Selecione uma propriedade</option>
-                    <option *ngFor="let propriedade of propriedades" value="{{ propriedade.id }}" name="id_propriedade">{{ propriedade.nome_propriedade }}</option>
-
-                </select>
+                <div class="text-danger" *ngIf="validaEspecie">
+                    {{msgValidaEspecie}}
+                </div>
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">Quantidade de animais:</label>
-                <input class="form-control" type="number" formControlName="qtde_total" name="qtde">
+                <input class="form-control" type="number" name="qtde_total" [(ngModel)]="rebanho.qtde_total">
+                <div class="text-danger" *ngIf="validaQtdeAnimais">
+                    {{msgValidaQtdeAnimais}}
+                </div>
             </div>
-            <button type="submit" class="btn btn-success">Salvar</button>
+            <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>
+            <button (click)="save()" class="btn btn-outline-success mx-3">Salvar</button>
+        </form>
+    </div>
+</div>
+<div  class="card my-3" *ngIf="mostrar">
+    <div class="card-body register-form">
+        <form>
+            
+            
+            
+            
+            
         </form>
     </div>
 </div>

@@ -17,16 +17,19 @@ import { Location } from '@angular/common';
 export class PropriedadeCadastrarComponent implements OnInit {
 
   ocultar:boolean = false
-  produtor = new Produtor
   validaCpf:boolean = false
   validaInscricao:boolean = false
   validaNome:boolean = false
   validaMunicipio:boolean = false
+  
   msgValidaCpf = ""
   msgValidaInscricao = ""
   msgValidaNome = ""
   msgValidaMunicipio = ""
+
+  produtor = new Produtor
   propriedade = new Propriedade
+
   municipios:Municipio[] = []
   constructor(
     private service:PropriedadeService,

@@ -1,4 +1,4 @@
-export interface Vacina {
-    id?: number
-    nome: string
+export class Vacina {
+    id: number = 0
+    nome: string = ""
 }

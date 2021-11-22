@@ -3,9 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Produtor } from 'src/app/models/produtor';
 import { Propriedade } from 'src/app/models/propriedade';
 import { Rebanho } from 'src/app/models/rebanho';
+import { RegistroVacina } from 'src/app/models/registrovacina';
 import { ProdutorService } from 'src/app/services/produtor.service';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
 import { RebanhoService } from 'src/app/services/rebanho.service';
+import { RegistrovacinaService } from 'src/app/services/registrovacina.service';
 
 @Component({
   selector: 'app-animal-detalhes',
@@ -17,11 +19,12 @@ export class AnimalDetalhesComponent implements OnInit {
   rebanho = new Rebanho
   propriedade = new Propriedade
   produtor = new Produtor
+  registroVacina: RegistroVacina[] = []
 
   constructor(
     private service:RebanhoService,
     private produtorService:ProdutorService,
-    private rebanhoService:RebanhoService,
+    private registroService:RegistrovacinaService,
     private route: ActivatedRoute,
     private propriedadeService:PropriedadeService
   ) { }
@@ -57,6 +60,10 @@ export class AnimalDetalhesComponent implements OnInit {
         this.produtor = data
       }
     )
+  }
+
+  getRegistroVacina(){
+    this.registroService.GetId
   }
 
   voltar(){

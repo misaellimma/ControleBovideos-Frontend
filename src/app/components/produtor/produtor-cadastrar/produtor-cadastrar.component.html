@@ -2,36 +2,48 @@
 
 <div  class="card my-3">
     <div class="card-body register-form">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form>
             <div class="form-group mb-3">
                 <label class="form-label">Nome: </label>
-                <input class="form-control" type="text" formControlName="nome" required>
+                <input class="form-control" type="text" name="nome" [(ngModel)]="produtor.nome" required>
+                <div *ngIf="validaNome" class="text-danger">
+                    {{ msgValidaNome }}
+                </div>
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">CPF: </label>
-                <input class="form-control" type="text" formControlName="cpf" (blur)="verificaCpf()">
+                <input class="form-control" type="text" name="cpf" [(ngModel)]="produtor.cpf" (blur)="verificaCpf()">
                 <div *ngIf="validaCpf" class="text-danger">
                     {{ msgValidaCpf }}
                 </div>
             </div>
             <label class="form-label">Selecione o município: </label>
             <div class="form-group mb-3">
-                <select class="form-select" formControlName="id_municipio">
+                <select class="form-select" name="id_municipio" [(ngModel)]="endereco.id_municipio">
                     <option value="">Selecione o município</option>
                     <option *ngFor="let municipio of municipios" value="{{ municipio.id }}">{{ municipio.nome }}</option>
                 </select>
+                <div *ngIf="validaMunicipio" class="text-danger">
+                    {{ msgValidaMunicipio }}
+                </div>
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">Rua: </label>
-                <input class="form-control" type="text" formControlName="rua">
+                <input class="form-control" type="text" name="rua" [(ngModel)]="endereco.rua" >
+                <div *ngIf="validaRua" class="text-danger">
+                    {{ msgValidaRua }}
+                </div>
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">Numero: </label>
-                <input class="form-control" type="number" formControlName="numero">
+                <input class="form-control" type="number" name="numero" [(ngModel)]="endereco.numero">
+                <div *ngIf="validaNumero" class="text-danger">
+                    {{ msgValidaNumero }}
+                </div>
             </div>
             <div class=" mx-auto">
                 <a (click)="voltar()" class="btn btn-outline-danger mt-3">Voltar</a>
-                <button type="submit" class="btn btn-outline-success mx-3 mt-3">Salvar</button>
+                <button (click)="save()" class="btn btn-outline-success mx-3 mt-3">Salvar</button>
             </div>
         </form>
     </div>

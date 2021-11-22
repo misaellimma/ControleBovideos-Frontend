@@ -17,12 +17,8 @@ import { Rebanho } from 'src/app/models/rebanho';
 })
 export class PropriedadeDetalhesComponent implements OnInit {
 
-  produtor:Produtor = {
-    id: 0,
-    id_endereco: 0,
-    nome: "",
-    cpf: ""
-  }
+  mostrar:boolean = false
+  produtor = new Produtor()
 
   propriedade:Propriedade = {
     id: 0,
@@ -80,7 +76,11 @@ export class PropriedadeDetalhesComponent implements OnInit {
 
   getRebanho(id: number){
     this.rebanhoService.GetPropriedade(id).subscribe(
-      data => this.rebanho = data
+      data => {
+        this.rebanho = data
+      if(this.rebanho.length != 0){
+        this.mostrar = true
+      }}
     )
   }
   voltar(){

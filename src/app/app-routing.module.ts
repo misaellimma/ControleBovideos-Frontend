@@ -11,8 +11,8 @@ import { PropriedadeCadastrarComponent } from './components/propriedade/propried
 import { PropriedadeDetalhesComponent } from './components/propriedade/propriedade-detalhes/propriedade-detalhes.component';
 import { PropriedadeEditarComponent } from './components/propriedade/propriedade-editar/propriedade-editar.component';
 import { PropriedadeComponent } from './components/propriedade/propriedade/propriedade.component';
-import { RegistroVacinaCancelarComponent } from './components/registro-vacina/registro-vacina-cancelar/registro-vacina-cancelar.component';
-import { RegistroVacinaPropriedadeComponent } from './components/registro-vacina/registro-vacina-propriedade/registro-vacina-propriedade.component';
+import { RegistroVacinaCadastrarComponent } from './components/registro-vacina/registro-vacina-cadastrar/registro-vacina-cadastrar.component';
+import { RegistroVacinaDetalhesComponent } from './components/registro-vacina/registro-vacina-detalhes/registro-vacina-detalhes.component';
 import { RegistroVacinaComponent } from './components/registro-vacina/registro-vacina/registro-vacina.component';
 import { VendaCancelarComponent } from './components/venda/venda-cancelar/venda-cancelar.component';
 import { VendaComprasComponent } from './components/venda/venda-compras/venda-compras.component';
@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: "animal", component: AnimalComponent},
   { path: "animal-cadastrar", component: AnimalCadastrarComponent},
   { path: "animal/:id", component: AnimalDetalhesComponent},
-  //{ path: "animal-propriedade", component: AnimalPropriedadeComponent},
   { path: "produtor", component: ProdutorComponent},
   { path: "produtor-cadastrar", component: ProdutorCadastrarComponent},
   { path: "produtor-editar/:id", component: ProdutorEditarComponent},
@@ -33,8 +32,8 @@ const routes: Routes = [
   { path: "propriedade/:id", component: PropriedadeDetalhesComponent},
   { path: "propriedade-cadastrar", component: PropriedadeCadastrarComponent},
   { path: "registro-vacina", component: RegistroVacinaComponent},
-  { path: "registro-vacina-cancelar", component: RegistroVacinaCancelarComponent},
-  { path: "registro-vacina-propriedade", component: RegistroVacinaPropriedadeComponent},
+  { path: "registro-vacina-cadastrar", component: RegistroVacinaCadastrarComponent},
+  { path: "registro-vacina/:id", component: RegistroVacinaDetalhesComponent},
   { path: "venda", component: VendaComponent},
   { path: "venda-cancelar", component: VendaCancelarComponent},
   { path: "venda-vendas", component: VendaVendasComponent},

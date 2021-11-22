@@ -20,12 +20,7 @@ export class PropriedadeComponent implements OnInit {
     incricao_estadual: "",
     nome_propriedade: ""
   }]
-  produtor:Produtor = {
-    id:0,
-    id_endereco: 0,
-    nome: "",
-    cpf:""
-  }
+  produtor = new Produtor()
   form:FormGroup
   inscricao:any
   errorMessage = ""

@@ -1,4 +1,4 @@
-export interface EspecieBovideo{
-    id?: number
-    descricao: string
+export class EspecieBovideo{
+    id: number = 0
+    descricao: string = ""
 }

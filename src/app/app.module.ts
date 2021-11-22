@@ -11,8 +11,6 @@ import { RegistroVacinaComponent } from './components/registro-vacina/registro-v
 import { VendaComponent } from './components/venda/venda.component';
 import { ProdutorEditarComponent } from './components/produtor/produtor-editar/produtor-editar.component';
 import { PropriedadeEditarComponent } from './components/propriedade/propriedade-editar/propriedade-editar.component';
-import { RegistroVacinaCancelarComponent } from './components/registro-vacina/registro-vacina-cancelar/registro-vacina-cancelar.component';
-import { RegistroVacinaPropriedadeComponent } from './components/registro-vacina/registro-vacina-propriedade/registro-vacina-propriedade.component';
 import { VendaCancelarComponent } from './components/venda/venda-cancelar/venda-cancelar.component';
 import { VendaVendasComponent } from './components/venda/venda-vendas/venda-vendas.component';
 import { VendaComprasComponent } from './components/venda/venda-compras/venda-compras.component';
@@ -22,6 +20,8 @@ import { PropriedadeDetalhesComponent } from './components/propriedade/proprieda
 import { PropriedadeCadastrarComponent } from './components/propriedade/propriedade-cadastrar/propriedade-cadastrar.component';
 import { AnimalCadastrarComponent } from './components/animal/animal-cadastrar/animal-cadastrar.component';
 import { AnimalDetalhesComponent } from './components/animal/animal-detalhes/animal-detalhes.component';
+import { RegistroVacinaCadastrarComponent } from './components/registro-vacina/registro-vacina-cadastrar/registro-vacina-cadastrar.component';
+import { RegistroVacinaDetalhesComponent } from './components/registro-vacina/registro-vacina-detalhes/registro-vacina-detalhes.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,6 @@ import { AnimalDetalhesComponent } from './components/animal/animal-detalhes/ani
     ProdutorEditarComponent,
     ProdutorDetalhesComponent,
     PropriedadeEditarComponent,
-    RegistroVacinaCancelarComponent,
-    RegistroVacinaPropriedadeComponent,
     VendaCancelarComponent,
     VendaVendasComponent,
     VendaComprasComponent,
@@ -44,7 +42,9 @@ import { AnimalDetalhesComponent } from './components/animal/animal-detalhes/ani
     PropriedadeDetalhesComponent,
     PropriedadeCadastrarComponent,
     AnimalCadastrarComponent,
-    AnimalDetalhesComponent
+    AnimalDetalhesComponent,
+    RegistroVacinaCadastrarComponent,
+    RegistroVacinaDetalhesComponent
   ],
   imports: [
     BrowserModule,

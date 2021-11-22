@@ -17,12 +17,7 @@ import { PropriedadeService } from 'src/app/services/propriedade.service';
 })
 export class ProdutorDetalhesComponent implements OnInit {
 
-  produtor:Produtor = {
-    id: 0,
-    id_endereco: 0,
-    nome: "",
-    cpf: ""
-  }
+  produtor = new Produtor()
 
   endereco:Endereco = {
     id: 0,
