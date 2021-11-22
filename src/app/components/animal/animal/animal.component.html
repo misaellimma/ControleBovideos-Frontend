@@ -1,28 +1,41 @@
-<h2>Cadastrar Rebanho</h2>
+<h2>Rebanho</h2>
 
 <div  class="card my-3">
     <div class="card-body register-form">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <label class="form-label">Selecione uma espécie: </label>
+        <form>
+            <label class="form-label">Informe o CPF do produtor: </label>
             <div class="form-group mb-3">
-                <select class="form-select" formControlName="id_especie">
-                    <option value="">Selecione uma espécie</option>
-                    <option *ngFor="let especie of especies" value="{{ especie.id }}">{{ especie.descricao }}</option>
-                </select>
+                <input class="form-control me-2" type="search" placeholder="000.000.000-00" aria-label="Search" name="cpf" [(ngModel)]="cpf">
+                <button (click)="getCpf()" class="btn btn-outline-success mt-3" >Procurar</button>
+                <a class="btn btn-outline-primary mx-3 mt-3" href="/animal-cadastrar">Cadastrar Rebanho</a>
+                <a class="btn btn-outline-primary mt-3" href="/produtor-cadastrar">Cadastrar Produtor</a>
             </div>
-            <label class="form-label">Selecione uma propriedade: </label>
-            <div class="form-group mb-3">
-                <select class="form-select" formControlName="id_propriedade">
-                    <option value="">Selecione uma propriedade</option>
-                    <option *ngFor="let propriedade of propriedades" value="{{ propriedade.id }}" name="id_propriedade">{{ propriedade.nome_propriedade }}</option>
-
-                </select>
+            <div class="alert alert-danger" *ngIf="erro">
+                {{errorMessage}}
             </div>
-            <div class="form-group mb-3">
-                <label class="form-label">Quantidade de animais:</label>
-                <input class="form-control" type="number" formControlName="qtde_total" name="qtde">
-            </div>
-            <button type="submit" class="btn btn-success">Salvar</button>
         </form>
     </div>
 </div>
+
+<table class="table border rounded-circle table-striped mb-0 " *ngIf="ocultar">
+    <thead >
+        <tr>
+            <th scope="col"> Especie</th>
+            <th scope="col">| Propriedade</th>
+            <th scope="col">| Quantidade </th>
+            <th scope="col">| Vacinados</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rebanho of rebanhos">
+            <td>{{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</td>
+            <td>| {{ rebanho.id_propriedade }}</td>
+            <td>| {{ rebanho.qtde_total }}</td>
+            <td>| {{ rebanho.qtde_vacinado }}</td>
+            <td class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="animal/{{ rebanho.id }}" class="btn btn-outline-primary btn-sm">Detalhes</a>
+            </td>
+        </tr>  
+      </tbody>
+</table>

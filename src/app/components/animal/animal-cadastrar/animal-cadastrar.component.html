@@ -1,0 +1,29 @@
+<p>animal-cadastrar works!</p>
+<h2>Cadastrar Rebanho</h2>
+
+<div  class="card my-3">
+    <div class="card-body register-form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label class="form-label">Selecione uma espécie: </label>
+            <div class="form-group mb-3">
+                <select class="form-select" formControlName="id_especie">
+                    <option value="">Selecione uma espécie</option>
+                    <option *ngFor="let especie of especies" value="{{ especie.id }}">{{ especie.descricao }}</option>
+                </select>
+            </div>
+            <label class="form-label">Selecione uma propriedade: </label>
+            <div class="form-group mb-3">
+                <select class="form-select" formControlName="id_propriedade">
+                    <option value="">Selecione uma propriedade</option>
+                    <option *ngFor="let propriedade of propriedades" value="{{ propriedade.id }}" name="id_propriedade">{{ propriedade.nome_propriedade }}</option>
+
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Quantidade de animais:</label>
+                <input class="form-control" type="number" formControlName="qtde_total" name="qtde">
+            </div>
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+    </div>
+</div>

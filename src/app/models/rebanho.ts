@@ -1,7 +1,7 @@
-export interface Rebanho {
-    id: number
-    id_especie: number
-    id_propriedade: number
-    qtde_total: number
-    qtde_vacinado: number
+export class Rebanho {
+    id: number = 0;
+    id_especie: number = 0;
+    id_propriedade: number = 0;
+    qtde_total: number = 0;
+    qtde_vacinado: number = 0;
 }

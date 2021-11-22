@@ -7,6 +7,8 @@ import { MunicipioService } from 'src/app/services/municipio.service';
 import { ProdutorService } from 'src/app/services/produtor.service';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
 import { Location } from '@angular/common';
+import { RebanhoService } from 'src/app/services/rebanho.service';
+import { Rebanho } from 'src/app/models/rebanho';
 
 @Component({
   selector: 'app-propriedade-detalhes',
@@ -34,10 +36,13 @@ export class PropriedadeDetalhesComponent implements OnInit {
     id: 0,
     nome: ""
   }
+
+  rebanho:Rebanho[] = []
   constructor(
     private service: PropriedadeService,
     private produtorservice: ProdutorService,
     private municipioService:MunicipioService,
+    private rebanhoService:RebanhoService,
     private location: Location, 
     private route: ActivatedRoute
   ) { }
@@ -56,6 +61,7 @@ export class PropriedadeDetalhesComponent implements OnInit {
         this.getProdutor(data.id_produtor)
         this.getMunicipio(data.id_municipio)
       })
+      this.getRebanho(id)
   }
 
   getProdutor(id:number){
@@ -70,6 +76,12 @@ export class PropriedadeDetalhesComponent implements OnInit {
       data => {
         this.municipio = data
       })
+  }
+
+  getRebanho(id: number){
+    this.rebanhoService.GetPropriedade(id).subscribe(
+      data => this.rebanho = data
+    )
   }
   voltar(){
     this.location.back()

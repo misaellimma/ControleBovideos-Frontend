@@ -1,0 +1,25 @@
+<h2>Detalhes Rebanho</h2>
+
+<div  class="card my-3">
+    <div class="card-body">
+        <div class="form-group mb-3">
+            <label class="form-label">Proprietário: {{ produtor.nome }}</label>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label">Nome da propriedade: {{ propriedade.nome_propriedade }} </label>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label">Especie do rebanho: {{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</label>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label">Quantidade total: {{ rebanho.qtde_total }}</label>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label">Quantidade de vacinados: {{ rebanho.qtde_vacinado }}</label>
+        </div>
+        <a (click)="voltar()" class="btn btn-outline-dark">Voltar</a>
+        <a href="propriedade-editar/" class="btn btn-outline-success mx-3">Editar</a>
+        <a href="propriedade-editar/" class="btn btn-outline-success">Vender</a>
+        <a href="propriedade-editar/" class="btn btn-outline-success mx-3">Vacinar</a>
+    </div>
+</div>

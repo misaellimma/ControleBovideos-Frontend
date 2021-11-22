@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AnimalCancelarComponent } from './components/animal/animal-cancelar/animal-cancelar.component';
-import { AnimalProdutorComponent } from './components/animal/animal-produtor/animal-produtor.component';
-import { AnimalPropriedadeComponent } from './components/animal/animal-propriedade/animal-propriedade.component';
+import { AnimalCadastrarComponent } from './components/animal/animal-cadastrar/animal-cadastrar.component';
+import { AnimalDetalhesComponent } from './components/animal/animal-detalhes/animal-detalhes.component';
 import { AnimalComponent } from './components/animal/animal/animal.component';
 import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadastrar/produtor-cadastrar.component';
 import { ProdutorDetalhesComponent } from './components/produtor/produtor-detalhes/produtor-detalhes.component';
@@ -22,9 +21,9 @@ import { VendaComponent } from './components/venda/venda.component';
 
 const routes: Routes = [
   { path: "animal", component: AnimalComponent},
-  { path: "animal-cancelar", component: AnimalCancelarComponent},
-  { path: "animal-produtor", component: AnimalProdutorComponent},
-  { path: "animal-propriedade", component: AnimalPropriedadeComponent},
+  { path: "animal-cadastrar", component: AnimalCadastrarComponent},
+  { path: "animal/:id", component: AnimalDetalhesComponent},
+  //{ path: "animal-propriedade", component: AnimalPropriedadeComponent},
   { path: "produtor", component: ProdutorComponent},
   { path: "produtor-cadastrar", component: ProdutorCadastrarComponent},
   { path: "produtor-editar/:id", component: ProdutorEditarComponent},

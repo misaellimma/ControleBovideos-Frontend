@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EspecieBovideo } from 'src/app/models/especieBovideo';
+import { Produtor } from 'src/app/models/produtor';
 import { Propriedade } from 'src/app/models/propriedade';
 import { Rebanho } from 'src/app/models/rebanho';
 import { EspecieBovideoService } from 'src/app/services/especie-bovideo.service';
+import { ProdutorService } from 'src/app/services/produtor.service';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
 import { RebanhoService } from 'src/app/services/rebanho.service';
 
@@ -14,59 +16,63 @@ import { RebanhoService } from 'src/app/services/rebanho.service';
 })
 export class AnimalComponent implements OnInit {
 
-  especies:EspecieBovideo[] = []
-  propriedades:Propriedade[] = []
-  rebanho:Rebanho = {
-    id: 0,
-    id_especie:0,
-    id_propriedade: 0,
-    qtde_total: 0,
-    qtde_vacinado: 0
-  }
-  submitted: boolean = false
-  form:FormGroup
+  ocultar:boolean = false
+  erro:boolean = false
+  errorMessage = ""
+  cpf = ""
 
+  produtor = new Produtor
+  rebanhos: Rebanho[] = []
   constructor(
     private service:RebanhoService,
-    private especieService:EspecieBovideoService,
-    private propriedadeService:PropriedadeService,
-    private formBuilder: FormBuilder
-  ) {
-    this.form = this.formBuilder.group(
-      {
-        id_especie: ['', Validators.required],
-        id_propriedade: ['', Validators.required],
-        qtde_total: ['', Validators.required]
-      }
-    )
-   }
+    private produtorService:ProdutorService,
+    private rebanhoService:RebanhoService,
+    private propriedadeService:PropriedadeService
+  ) { }
 
   ngOnInit(): void {
-    this.getEspecie()
-    this.getPropriedades()
+ 
   }
 
-  getEspecie(){
-    this.especieService.get().subscribe(data => this.especies = data)
-  }
-
-  getPropriedades(){
-    this.propriedadeService.get().subscribe(data => this.propriedades = data)
-  }
-
-  onSubmit(){
-    this.submitted = true
-    if(this.form.invalid){
-      return
+  getCpf(){
+    this.erro = false
+    this.ocultar = false
+    if(this.validaForm()){
+      this.produtorService.GetCpf(this.cpf).subscribe(
+        data => {
+          this.produtor = data
+          this.getRebanho(data.id)
+        },
+        error => {
+          console.log(error);
+          this.errorMessage = error.error,
+          this.erro = true
+        })
     }
-    this.rebanho = this.form.value
-    this.rebanho
-    console.log(this.rebanho)
-    this.save(this.rebanho)
   }
-  save(rebanho:Rebanho){
-    this.service.Add(rebanho).subscribe(
-      resp => console.log(resp)
-    )
+
+  validaForm():boolean{
+    let valida = true
+    if(this.cpf == ""){
+      this.errorMessage = "O campo não pode estar vazio!"
+      this.erro = true
+      valida = false
+    }
+    return valida
+  }
+  
+  getRebanho(id:number){
+    this.rebanhoService.GetProdutor(id).subscribe(
+      data => {
+        this.rebanhos = data
+        if(this.rebanhos.length != 0){
+          console.log(data);
+          this.ocultar = true
+        }else{
+          this.erro = true
+          this.errorMessage = "Não existe rebanho cadastrado para esse produtor!"
+        }
+        
+      })
   }
 }

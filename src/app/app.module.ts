@@ -9,9 +9,6 @@ import { ProdutorComponent } from './components/produtor/produtor/produtor.compo
 import { PropriedadeComponent } from './components/propriedade/propriedade/propriedade.component';
 import { RegistroVacinaComponent } from './components/registro-vacina/registro-vacina/registro-vacina.component';
 import { VendaComponent } from './components/venda/venda.component';
-import { AnimalCancelarComponent } from './components/animal/animal-cancelar/animal-cancelar.component';
-import { AnimalProdutorComponent } from './components/animal/animal-produtor/animal-produtor.component';
-import { AnimalPropriedadeComponent } from './components/animal/animal-propriedade/animal-propriedade.component';
 import { ProdutorEditarComponent } from './components/produtor/produtor-editar/produtor-editar.component';
 import { PropriedadeEditarComponent } from './components/propriedade/propriedade-editar/propriedade-editar.component';
 import { RegistroVacinaCancelarComponent } from './components/registro-vacina/registro-vacina-cancelar/registro-vacina-cancelar.component';
@@ -23,6 +20,8 @@ import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadas
 import { ProdutorDetalhesComponent } from './components/produtor/produtor-detalhes/produtor-detalhes.component';
 import { PropriedadeDetalhesComponent } from './components/propriedade/propriedade-detalhes/propriedade-detalhes.component';
 import { PropriedadeCadastrarComponent } from './components/propriedade/propriedade-cadastrar/propriedade-cadastrar.component';
+import { AnimalCadastrarComponent } from './components/animal/animal-cadastrar/animal-cadastrar.component';
+import { AnimalDetalhesComponent } from './components/animal/animal-detalhes/animal-detalhes.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +31,6 @@ import { PropriedadeCadastrarComponent } from './components/propriedade/propried
     PropriedadeComponent,
     RegistroVacinaComponent,
     VendaComponent,
-    AnimalCancelarComponent,
-    AnimalProdutorComponent,
-    AnimalPropriedadeComponent,
     ProdutorEditarComponent,
     ProdutorDetalhesComponent,
     PropriedadeEditarComponent,
@@ -46,7 +42,9 @@ import { PropriedadeCadastrarComponent } from './components/propriedade/propried
     ProdutorCadastrarComponent,
     ProdutorDetalhesComponent,
     PropriedadeDetalhesComponent,
-    PropriedadeCadastrarComponent
+    PropriedadeCadastrarComponent,
+    AnimalCadastrarComponent,
+    AnimalDetalhesComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ import { PropriedadeService } from 'src/app/services/propriedade.service';
 })
 export class ProdutorComponent implements OnInit {
 
-  ocultar:boolean = false
+  mostrar:boolean = false
   produtores:Produtor[] = []
   form:FormGroup
   cpf:any
@@ -33,8 +33,13 @@ export class ProdutorComponent implements OnInit {
   getAll(){
     this.service.get().subscribe(
       data => {
-        this.produtores = data, 
-        this.ocultar = true
+        this.produtores = data
+        if(this.produtores.length != 0){
+          this.mostrar = true
+        }else{
+          this.erro = true
+          this.errorMessage = "Não existe produtor cadastrado!"
+        }
       })
   }
 
@@ -45,7 +50,7 @@ export class ProdutorComponent implements OnInit {
     this.service.GetCpf(cpf).subscribe(
       data => {
         this.produtores.push(data)
-        this.ocultar = true
+        this.mostrar = true
       },
       error => {
         this.errorMessage = error.error,
@@ -54,7 +59,7 @@ export class ProdutorComponent implements OnInit {
   }
 
   onSubmit(){
-    this.ocultar = false
+    this.mostrar = false
     this.erro = false
     this.cpf = this.form.value
     if(this.form.invalid){
