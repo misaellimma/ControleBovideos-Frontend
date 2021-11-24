@@ -16,10 +16,8 @@
             </div>
             <label class="form-label">Selecione o município: </label>
             <div class="form-group mb-3">
-                <select class="form-select" name="id_municipio" [(ngModel)]="propriedade.id_municipio">
+                <select class="form-select" name="id_municipio" [(ngModel)]="propriedade.id_municipio" disabled>
                     <option value="{{ municipio.id}}">{{ municipio.nome}}</option>
-                    <option value=""></option>
-                    <option *ngFor="let m of municipios" value="{{ m.id}}">{{ m.nome}}</option>
                 </select>
                 <div class="text-danger" *ngIf="validaMunicipio">
                     {{msgValidaMunicipio}}

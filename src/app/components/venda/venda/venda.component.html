@@ -1,0 +1,41 @@
+<h2>Lista de vendas</h2>
+
+<div  class="card my-3">
+    <div class="card-body register-form">
+        <form>
+            <div class="form-group mb-3">
+                <label class="form-label">Informe o CPF do produtor: </label>
+                <input class="form-control me-2" type="text" placeholder="000.000.000-00" name="cpf" [(ngModel)]="produtor.cpf">
+                <div class="text-danger" *ngIf="validaCpf">
+                    {{msgValidaCpf}}
+                </div>
+            </div>
+            
+            <button (click)="verificaCpf('compra')" class="btn btn-outline-success">Pesquisar Compras</button>
+            <button (click)="verificaCpf('venda')" class="btn btn-outline-success mx-3">Pesquisar vendas</button>
+            <a href="venda-vender" class="btn btn-outline-primary ">Realizar uma venda</a>
+        </form>
+    </div>
+</div>
+<table class="table border rounded-circle table-striped mb-0 " id="mostrar" >
+    <thead >
+        <tr>
+            <th scope="col"> Origem</th>
+            <th scope="col">| Destino</th>
+            <th scope="col">| Data</th>
+            <th scope="col">| Quantidade vendida</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let venda of vendas">
+            <td> {{ venda.rebanho_origem }}</td>
+            <td>| {{ venda.rebanho_destino }}</td>
+            <td>| {{ venda.data }}</td>
+            <td>| {{ venda.qtde_vendida }}</td>
+            <td class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="venda/{{ venda.id }}" class="btn btn-outline-dark btn-sm">Detalhes</a>
+            </td>
+        </tr>  
+    </tbody>
+</table>

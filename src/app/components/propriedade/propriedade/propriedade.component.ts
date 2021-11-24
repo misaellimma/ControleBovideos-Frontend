@@ -38,6 +38,7 @@ export class PropriedadeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getAll()
   }
 
   getInscricao(inscricao:string){

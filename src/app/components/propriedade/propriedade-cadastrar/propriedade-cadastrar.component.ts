@@ -63,7 +63,9 @@ export class PropriedadeCadastrarComponent implements OnInit {
     
     if(this.propriedade.incricao_estadual.length > 0){
       this.service.GetValidaInscricao(this.propriedade.incricao_estadual).subscribe(
-        data => this.produtor.cpf = data,
+        data => {
+          console.log(data);
+        },
         error => {
           console.log(error)
           this.msgValidaInscricao = error.error
@@ -84,12 +86,14 @@ export class PropriedadeCadastrarComponent implements OnInit {
       this.propriedade.id_municipio = Number(this.propriedade.id_municipio)
 
       this.Post(this.propriedade)
-      this.back()
+      this.voltar()
     }
   }
 
-  back(){
-    this.location.back()
+  voltar(){
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 
   Post(propriedade: Propriedade){

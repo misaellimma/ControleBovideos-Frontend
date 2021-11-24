@@ -29,7 +29,9 @@ export class ProdutorComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getAll()
   }
+  
   getAll(){
     this.service.get().subscribe(
       data => {

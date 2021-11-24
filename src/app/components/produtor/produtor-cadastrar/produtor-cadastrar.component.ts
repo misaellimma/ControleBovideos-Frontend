@@ -6,6 +6,7 @@ import { Produtor } from 'src/app/models/produtor';
 import { EnderecoService } from 'src/app/services/endereco.service';
 import { MunicipioService } from 'src/app/services/municipio.service';
 import { ProdutorService } from 'src/app/services/produtor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produtor-cadastrar',
@@ -42,6 +43,7 @@ export class ProdutorCadastrarComponent implements OnInit {
     private service: ProdutorService,
     private municipioService:MunicipioService,
     private enderecoService:EnderecoService,
+    private router:Router,
     private location: Location
   ) {
 
@@ -61,6 +63,7 @@ export class ProdutorCadastrarComponent implements OnInit {
     console.log(this.endereco)
     if(this.validaForm()){
       this.postEndereco()
+      this.voltar()
     }
   }
 
@@ -82,7 +85,6 @@ export class ProdutorCadastrarComponent implements OnInit {
       error => {console.log(error)
       }
     )
-    this.voltar()
   }
 
   validaForm():boolean{
@@ -146,6 +148,8 @@ export class ProdutorCadastrarComponent implements OnInit {
   }
 
   voltar(){
-    this.location.back()
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 }

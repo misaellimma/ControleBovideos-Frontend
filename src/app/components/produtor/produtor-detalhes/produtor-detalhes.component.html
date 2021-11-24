@@ -20,7 +20,6 @@
         
         <a (click)="voltar()" class="btn btn-outline-dark ">Voltar</a>
         <a href="produtor-editar/{{ produtor.id }}" class="btn btn-outline-success mx-3">Editar</a>
-        <a href="propriedade-cadastrar" class="btn btn-outline-primary">Adicionar propriedade</a>
         <hr *ngIf="propbool">
         <table class="table border rounded-circle table-striped mt-3 " *ngIf="propbool">
             <thead >
@@ -35,8 +34,7 @@
                     <td>{{ propriedade.nome_propriedade }}</td>
                     <td>| {{ propriedade.incricao_estadual }}</td>
                     <td class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="propriedade/{{ propriedade.id }}" class="btn btn-outline-primary btn-sm">Detalhes</a>
-                        <a href="propriedade-editar/{{ propriedade.id }}" class="btn btn-outline-danger btn-sm mx-2">Editar</a>
+                        <a href="propriedade/{{ propriedade.id }}" class="btn btn-outline-primary btn-sm">Selecionar</a>
                     </td>
                 </tr>  
               </tbody>

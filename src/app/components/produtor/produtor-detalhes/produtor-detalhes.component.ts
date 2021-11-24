@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Endereco } from 'src/app/models/endereco';
 import { Municipio } from 'src/app/models/municipio';
 import { Produtor } from 'src/app/models/produtor';
@@ -80,6 +80,8 @@ export class ProdutorDetalhesComponent implements OnInit {
   }
 
   voltar(){
-    this.location.back()
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 }

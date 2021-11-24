@@ -8,6 +8,8 @@ import { ProdutorService } from 'src/app/services/produtor.service';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
 import { RebanhoService } from 'src/app/services/rebanho.service';
 import { RegistrovacinaService } from 'src/app/services/registrovacina.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-animal-detalhes',
@@ -26,6 +28,7 @@ export class AnimalDetalhesComponent implements OnInit {
     private produtorService:ProdutorService,
     private registroService:RegistrovacinaService,
     private route: ActivatedRoute,
+    private location: Location, 
     private propriedadeService:PropriedadeService
   ) { }
 
@@ -67,6 +70,8 @@ export class AnimalDetalhesComponent implements OnInit {
   }
 
   voltar(){
-
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 }

@@ -8,7 +8,6 @@
                 <input class="form-control me-2" type="search" placeholder="000.000.000-00" aria-label="Search" name="cpf" [(ngModel)]="cpf">
                 <button (click)="getCpf()" class="btn btn-outline-success mt-3" >Procurar</button>
                 <a class="btn btn-outline-primary mx-3 mt-3" href="/animal-cadastrar">Cadastrar Rebanho</a>
-                <a class="btn btn-outline-primary mt-3" href="/produtor-cadastrar">Cadastrar Produtor</a>
             </div>
             <div class="alert alert-danger" *ngIf="erro">
                 {{errorMessage}}

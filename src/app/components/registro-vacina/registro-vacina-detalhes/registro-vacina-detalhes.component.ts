@@ -87,7 +87,9 @@ export class RegistroVacinaDetalhesComponent implements OnInit {
   }
 
   voltar(){
-    this.location.back()
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 
 }

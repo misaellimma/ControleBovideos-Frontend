@@ -26,6 +26,7 @@ export class RegistroVacinaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.propriedade.incricao_estadual = ""
   }
 
   getInscricao(){
@@ -56,7 +57,7 @@ export class RegistroVacinaComponent implements OnInit {
           this.mostrar = true
         }else{
           this.validaInscricao = true
-          this.msgValidaInscricao = "Sem registros de vacinação"
+          this.msgValidaInscricao = "Sem registros de vacinação!"
         }
         console.log(data);
         

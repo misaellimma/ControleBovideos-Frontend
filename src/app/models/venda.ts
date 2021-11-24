@@ -1,10 +1,10 @@
 import { Data } from "@angular/router";
 
-export interface Venda {
-    id?: number
-    rebanho_origem: number
-    rebanho_destino: number
-    id_finalidade_venda: number
-    qtde_vendida: number
-    data: Data
+export class Venda {
+    id: number = 0
+    rebanho_origem: number = 0
+    rebanho_destino: number = 0
+    id_finalidade_venda: number = 0
+    qtde_vendida: number = 0
+    data: string = ""
 }

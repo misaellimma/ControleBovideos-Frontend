@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MunicipioService } from 'src/app/services/municipio.service';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
 import { Location } from '@angular/common';
@@ -37,6 +37,7 @@ export class PropriedadeEditarComponent implements OnInit {
     private service: PropriedadeService,
     private municipioService:MunicipioService,
     private location: Location, 
+    private router: Router,
     private route: ActivatedRoute
   ) { }
 
@@ -68,8 +69,11 @@ export class PropriedadeEditarComponent implements OnInit {
         this.municipios = data
       })
   }
+  
   voltar(){
-    this.location.back()
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 
   save(){

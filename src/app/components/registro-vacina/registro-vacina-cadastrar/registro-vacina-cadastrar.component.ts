@@ -23,11 +23,13 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   validaRebanho:boolean = false
   validaVacina:boolean = false
   validaQtde:boolean = false
+  erro:boolean = false
   
   msgValidaInscricao = ""
   msgValidaRebanho = ""
   msgValidaVacina = ""
   msgValidaQtde = ""
+  
   
   propriedade = new Propriedade
   registroVacina = new RegistroVacina
@@ -85,8 +87,8 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   }
 
   save(){
-    this.postRegistro()
     if(this.validaForm()){
+      this.postRegistro()
     }
   }
   
@@ -100,13 +102,21 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
     this.service.Add(this.registroVacina).subscribe(
       data => {
         console.log(data);
+        this.voltar()
+
+      },
+      error =>{
+        alert(error.error)
+        console.log(error);
         
       }
     )
   }
 
   voltar(){
-    this.location.back()
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 
   validaForm():boolean{

@@ -101,7 +101,9 @@ export class ProdutorEditarComponent implements OnInit {
   }
 
   voltar(){
-    this.location.back()
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 
   validaForm():boolean{

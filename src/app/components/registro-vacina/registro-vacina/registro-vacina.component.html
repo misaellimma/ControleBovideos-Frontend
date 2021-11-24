@@ -5,15 +5,15 @@
         <form>
             <div class="form-group mb-3">
                 <label class="form-label">Informe a Incrição Estadual da propriedade: </label>
-                <input class="form-control me-2" type="search" placeholder="000.000.000" aria-label="Search" name="incricao_estadual" [(ngModel)]="propriedade.incricao_estadual">
-                <div class="text-danger" *ngIf="validaInscricao">
-                    {{msgValidaInscricao}}
-                </div>
+                <input class="form-control me-2" type="text" name="incricao_estadual" [(ngModel)]="propriedade.incricao_estadual" value="123">
                 <button class="btn btn-outline-dark mt-3" (click)="getInscricao()">Procurar</button>
                 <a class="btn btn-outline-success mx-3 mt-3" href="/registro-vacina-cadastrar">Cadastrar</a>
             </div>
         </form>
     </div>
+</div>
+<div class=" alert alert-danger" *ngIf="validaInscricao">
+    {{msgValidaInscricao}}
 </div>
 <table class="table border rounded-circle table-striped mb-0 " *ngIf="mostrar" >
     <thead >

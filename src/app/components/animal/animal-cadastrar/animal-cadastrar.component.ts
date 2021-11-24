@@ -81,6 +81,7 @@ export class AnimalCadastrarComponent implements OnInit {
   save(){
     if(this.validaForm()){
       this.postRebanho()
+      this.voltar()
     }
 
   }
@@ -100,7 +101,9 @@ export class AnimalCadastrarComponent implements OnInit {
   }
 
   voltar(){
-    this.location.back()
+    setTimeout(() => {
+      this.location.back()
+    }, 500);
   }
 
   validaForm():boolean{

@@ -14,10 +14,8 @@ import { PropriedadeComponent } from './components/propriedade/propriedade/propr
 import { RegistroVacinaCadastrarComponent } from './components/registro-vacina/registro-vacina-cadastrar/registro-vacina-cadastrar.component';
 import { RegistroVacinaDetalhesComponent } from './components/registro-vacina/registro-vacina-detalhes/registro-vacina-detalhes.component';
 import { RegistroVacinaComponent } from './components/registro-vacina/registro-vacina/registro-vacina.component';
-import { VendaCancelarComponent } from './components/venda/venda-cancelar/venda-cancelar.component';
-import { VendaComprasComponent } from './components/venda/venda-compras/venda-compras.component';
-import { VendaVendasComponent } from './components/venda/venda-vendas/venda-vendas.component';
-import { VendaComponent } from './components/venda/venda.component';
+import { VendaVenderComponent } from './components/venda/venda-vender/venda-vender.component';
+import { VendaComponent } from './components/venda/venda/venda.component';
 
 const routes: Routes = [
   { path: "animal", component: AnimalComponent},
@@ -35,9 +33,8 @@ const routes: Routes = [
   { path: "registro-vacina-cadastrar", component: RegistroVacinaCadastrarComponent},
   { path: "registro-vacina/:id", component: RegistroVacinaDetalhesComponent},
   { path: "venda", component: VendaComponent},
-  { path: "venda-cancelar", component: VendaCancelarComponent},
-  { path: "venda-vendas", component: VendaVendasComponent},
-  { path: "venda-compras", component: VendaComprasComponent}
+  { path: "venda-vender", component: VendaVenderComponent}
+
 
 ];
 
