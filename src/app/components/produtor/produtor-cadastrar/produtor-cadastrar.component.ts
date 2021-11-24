@@ -50,7 +50,7 @@ export class ProdutorCadastrarComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    sessionStorage.setItem("reload", "true")
     this.getMunicipio()
   }
 
@@ -69,7 +69,7 @@ export class ProdutorCadastrarComponent implements OnInit {
 
   postEndereco(){
     this.endereco.id_municipio = Number(this.endereco.id_municipio)
-    this.endereco.numero = String(this.endereco.id_municipio)
+    this.endereco.numero = String(this.endereco.numero)
     this.enderecoService.Add(this.endereco).subscribe(
       resp => {
         this.PostProdutor(Number(resp.id))

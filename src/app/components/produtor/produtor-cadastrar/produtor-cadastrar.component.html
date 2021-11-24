@@ -20,7 +20,6 @@
             <label class="form-label">Selecione o município: </label>
             <div class="form-group mb-3">
                 <select class="form-select" name="id_municipio" [(ngModel)]="endereco.id_municipio">
-                    <option value="">Selecione o município</option>
                     <option *ngFor="let municipio of municipios" value="{{ municipio.id }}">{{ municipio.nome }}</option>
                 </select>
                 <div *ngIf="validaMunicipio" class="text-danger">

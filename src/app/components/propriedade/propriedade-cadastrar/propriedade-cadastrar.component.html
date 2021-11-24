@@ -12,7 +12,7 @@
             </div>
             <div class="form-group mb-3">
                 <label class="form-label">Informe a Inscrição Estadual: </label>
-                <input (blur)="verificaInscricao()" class="form-control me-2" type="search" placeholder="000.000.000" name="incricao_estadual" [(ngModel)]="propriedade.incricao_estadual">
+                <input (blur)="verificaInscricao()" class="form-control me-2" type="search" placeholder="000.000.000" name="inscricao_estadual" [(ngModel)]="propriedade.inscricao_estadual">
                 <div class="text-danger" *ngIf="validaInscricao">
                     {{msgValidaInscricao}}
                 </div>

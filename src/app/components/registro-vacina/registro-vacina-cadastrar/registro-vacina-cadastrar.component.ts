@@ -22,12 +22,14 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   validaInscricao:boolean = false
   validaRebanho:boolean = false
   validaVacina:boolean = false
+  validaData:boolean = false
   validaQtde:boolean = false
   erro:boolean = false
   
   msgValidaInscricao = ""
   msgValidaRebanho = ""
   msgValidaVacina = ""
+  msgValidaData = ""
   msgValidaQtde = ""
   
   
@@ -46,6 +48,7 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.getVacina()
   }
 
@@ -53,11 +56,11 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
     this.validaInscricao = false
     console.log(this.propriedade);
     
-    if(this.propriedade.incricao_estadual == ""){
+    if(this.propriedade.inscricao_estadual == ""){
       this.validaInscricao = true
       this.msgValidaInscricao = "O campo não deve estar vazio!"
     }else{
-      this.propriedadeService.GetInscricao(this.propriedade.incricao_estadual).subscribe(
+      this.propriedadeService.GetInscricao(this.propriedade.inscricao_estadual).subscribe(
         data => {
           this.propriedade = data
           this.getRebanhos(data.id)
@@ -87,6 +90,8 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   }
 
   save(){
+    console.log(this.registroVacina);
+    
     if(this.validaForm()){
       this.postRegistro()
     }
@@ -95,8 +100,8 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   postRegistro(){
     this.registroVacina.id_rebanho = Number(this.registroVacina.id_rebanho)
     this.registroVacina.id_vacina = Number(this.registroVacina.id_vacina)
-    let data = new Date                         //2021-11-22T15:53:53.15
-    this.registroVacina.data = formatDate(data, 'yyyy-MM-ddThh:mm:ss', 'en-US')
+    //let data = new Date                         //2021-11-22T15:53:53.15
+    //this.registroVacina.data = formatDate(data, 'yyyy-MM-ddThh:mm:ss', 'en-US')
 
     console.log(this.registroVacina);
     this.service.Add(this.registroVacina).subscribe(
@@ -124,6 +129,7 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
     this.validaRebanho = false
     this.validaVacina = false
     this.validaQtde = false
+    this.validaData = false
 
     let valida = true
     if(this.validaInscricao){
@@ -131,10 +137,17 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
       valida = false
     }
 
-    if(this.propriedade.incricao_estadual == "")
+    if(this.propriedade.inscricao_estadual == "")
     {
       this.validaInscricao = true
       this.msgValidaInscricao = "Campo obrigatorio!"
+      valida = false
+    }
+
+    if(this.registroVacina.data == "")
+    {
+      this.validaData = true
+      this.msgValidaData = "Campo obrigatorio!"
       valida = false
     }
 
@@ -151,9 +164,15 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
       valida = false
     }
 
-    if(this.registroVacina.qtde_vacinado == 0 || this.registroVacina.qtde_vacinado == null){
+    if(this.registroVacina.qtde_vacinado == null){
       this.validaQtde = true
       this.msgValidaQtde = "Campo obrigatorio!"
+      valida = false
+    }
+
+    if(this.registroVacina.qtde_vacinado < 1){
+      this.validaQtde = true
+      this.msgValidaQtde = "Não deve ser menor que 1!"
       valida = false
     }
 

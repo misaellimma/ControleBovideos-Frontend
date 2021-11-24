@@ -5,10 +5,7 @@
         <form>
             <div class="form-group mb-3">
                 <label class="form-label">Informe o CPF do produtor: </label>
-                <input class="form-control me-2" type="text" placeholder="000.000.000-00" name="cpf" [(ngModel)]="produtor.cpf">
-                <div class="text-danger" *ngIf="validaCpf">
-                    {{msgValidaCpf}}
-                </div>
+                <input class="form-control" type="text" placeholder="000.000.000-00" onload="limpa()" name="cpf" id="cpf" [(ngModel)]="produtor.cpf">
             </div>
             
             <button (click)="verificaCpf('compra')" class="btn btn-outline-success">Pesquisar Compras</button>
@@ -17,7 +14,10 @@
         </form>
     </div>
 </div>
-<table class="table border rounded-circle table-striped mb-0 " id="mostrar" >
+<div class="alert alert-danger" *ngIf="erro">
+    {{msgErro}}
+</div>
+<table class="table border rounded-circle table-striped mb-0 " *ngIf="mostrar" >
     <thead >
         <tr>
             <th scope="col"> Origem</th>
@@ -39,3 +39,18 @@
         </tr>  
     </tbody>
 </table>
+<script>
+$(function () {
+    console.log("tets")
+});
+    var cpf
+    console.log(cpf)
+    cpf = document.querySelector("#cpf");
+    cpf.addEventListener('onload', function() {
+        Location.reload();
+    })
+    function limpa(){
+        document.getElementById('cpf').reset();
+
+    }
+</script>

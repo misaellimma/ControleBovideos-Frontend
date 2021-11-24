@@ -1,32 +1,36 @@
-<h2>Registro de vacina</h2>
+<h2>Venda</h2>
 
 <div  class="card my-3">
     <div class="card-body register-form">
         <form >
             <div class="form-group mb-3">
-                <label class="form-label">Nome da propriedade: {{ registroVacina.nome_propriedade }}</label>
-                
+                <label class="form-label">Vendedor: {{ produtorOrigem.nome }} </label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Espécie do rebanho: {{ registroVacina.rebanho }}</label>
-                
+                <label class="form-label">Propriedade: {{ propriedadeOrigem.nome_propriedade }}</label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Vacina aplicada: {{ registroVacina.vacina }}</label>
-                
+                <label class="form-label">Comprador: {{ produtorDestino.nome }}</label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Data da vacina: {{ registroVacina.data }}</label>
-                
+                <label class="form-label">Propriedade: {{ propriedadeDestino.nome_propriedade }}</label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Quantidade de animais vacinados: {{ registroVacina.qtde_vacinado }}</label>
-                
+                <label class="form-label">Finalidade da venda: {{ venda.id_finalidade_venda }}</label>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Espécie do rebanho: {{ rebanhoOrigem.id_especie == 1 ? "Bovino" : "Bubalino" }} </label>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Data da venda: {{ venda.data }}</label>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Quantidade de animais vendidos: {{ venda.qtde_vendida }}</label>
             </div>
             <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>
             <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-danger mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Cancelar registro
+            Cancelar venda
         </button>
         
         <!-- Modal -->
@@ -34,18 +38,18 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cancelar registro de vacina</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Cancelar venda</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Deseja cancelar o registro de vacina?
+                    Deseja cancelar a venda?
                 </div>
                 <div class="alert alert-danger m-2 px-2" *ngIf="erro">
                     {{msgErro}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Sair</button>
-                    <button (click)="delete()" class="btn btn-outline-danger mx-3">Cancelar registro</button>
+                    <button (click)="delete()" class="btn btn-outline-danger mx-3">Cancelar venda</button>
                 </div>
             </div>
             </div>

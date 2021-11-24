@@ -4,6 +4,7 @@ import { EspecieBovideo } from 'src/app/models/especieBovideo';
 import { Produtor } from 'src/app/models/produtor';
 import { Propriedade } from 'src/app/models/propriedade';
 import { Rebanho } from 'src/app/models/rebanho';
+import { RebanhoOut } from 'src/app/models/rebanhoOut';
 import { EspecieBovideoService } from 'src/app/services/especie-bovideo.service';
 import { ProdutorService } from 'src/app/services/produtor.service';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
@@ -22,7 +23,7 @@ export class AnimalComponent implements OnInit {
   cpf = ""
 
   produtor = new Produtor
-  rebanhos: Rebanho[] = []
+  rebanhos: RebanhoOut[] = []
   constructor(
     private service:RebanhoService,
     private produtorService:ProdutorService,
@@ -31,7 +32,10 @@ export class AnimalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
- 
+    if(sessionStorage.getItem("reload") == "true"){
+      window.location.reload()
+      sessionStorage.setItem("reload", "false")
+    }
   }
 
   getCpf(){

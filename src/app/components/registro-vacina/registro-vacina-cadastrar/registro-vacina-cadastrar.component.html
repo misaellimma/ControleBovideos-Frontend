@@ -4,8 +4,8 @@
     <div class="card-body register-form">
         <form >
             <div class="form-group mb-3">
-                <label class="form-label">Informe a Incrição Estadual da propriedade: </label>
-                <input (blur)="getInscricao()" class="form-control me-2" type="search" placeholder="000.000.000" aria-label="Search" name="incricao_estadual" [(ngModel)]="propriedade.incricao_estadual">
+                <label class="form-label">Informe a Inscrição Estadual da propriedade: </label>
+                <input (blur)="getInscricao()" class="form-control me-2" type="search" placeholder="000.000.000" aria-label="Search" name="inscricao_estadual" [(ngModel)]="propriedade.inscricao_estadual">
                 <div class="text-danger" *ngIf="validaInscricao">
                     {{msgValidaInscricao}}
                 </div>
@@ -35,6 +35,13 @@
                 <input class="form-control" type="number" name="qtde_vacinado" [(ngModel)]="registroVacina.qtde_vacinado">
                 <div class="text-danger" *ngIf="validaQtde">
                     {{msgValidaQtde}}
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Data da vacinação: </label>
+                <input class="form-control" type="date" name="data" [(ngModel)]="registroVacina.data">
+                <div class="text-danger" *ngIf="validaData">
+                    {{msgValidaData}}
                 </div>
             </div>
             <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>

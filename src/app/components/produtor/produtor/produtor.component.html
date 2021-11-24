@@ -9,11 +9,11 @@
                 <button class="btn btn-outline-success mt-3" type="submit">Procurar</button>
                 <a class="btn btn-outline-primary mx-3 mt-3" href="/produtor-cadastrar">Cadastrar</a>
             </div>
-            <div class="alert alert-danger" *ngIf="erro">
-                {{errorMessage}}
-            </div>
         </form>
     </div>
+</div>
+<div class="alert alert-danger" *ngIf="erro">
+    {{errorMessage}}
 </div>
 
 <table class="table border rounded-circle table-striped mb-0 " *ngIf="mostrar">

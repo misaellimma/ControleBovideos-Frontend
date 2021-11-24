@@ -19,9 +19,11 @@ import { Venda } from 'src/app/models/venda';
 })
 export class VendaComponent implements OnInit {
 
-  validaCpf:boolean = false
+  reload:boolean = true
+  erro:boolean = false
+  mostrar:boolean = false
 
-  msgValidaCpf = ""
+  msgErro = ""
 
   produtor = new Produtor
 
@@ -40,13 +42,25 @@ export class VendaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+    if(sessionStorage.getItem("reload") == "true"){
+      window.location.reload()
+      sessionStorage.setItem("reload", "false")
+    }
   }
 
   getCompras(id:number){
+    sessionStorage.setItem('teste', "true")
+
+    this.mostrar = false
     this.service.GetCompra(id).subscribe(
       data => {
         this.vendas = data
+        if(this.vendas.length == 0){
+          this.msgErro = "Este produtor não possui compras!"
+          this.erro = true
+        }else{
+          this.mostrar = true
+        }
         console.log(data);
         
       }
@@ -54,17 +68,28 @@ export class VendaComponent implements OnInit {
   }
 
   getVendas(id:number){
+    this.mostrar = false
     this.service.GetVenda(id).subscribe(
       data => {
         this.vendas = data
         console.log(data);
+        if(this.vendas.length == 0){
+          this.msgErro = "Este produtor não possui vendas!"
+          this.erro = true
+        }else{
+          this.mostrar = true
+        }
       }
     )
   }
 
   verificaCpf(str:string){
-    this.validaCpf = false
+    this.erro = false
     console.log(str);
+    if(this.produtor.cpf == ""){
+      this.msgErro = "O campo não pode estar vazio!"
+      this.erro = true
+    }
     
     if(this.produtor.cpf.length > 0){
       this.produtorService.GetCpf(this.produtor.cpf).subscribe(
@@ -80,8 +105,8 @@ export class VendaComponent implements OnInit {
         },
         error => {
           console.log(error)
-          this.msgValidaCpf = error.error
-          this.validaCpf = true
+          this.msgErro = error.error
+          this.erro = true
         })
       }
   }

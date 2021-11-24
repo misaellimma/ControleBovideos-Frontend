@@ -20,6 +20,7 @@ import { AnimalDetalhesComponent } from './components/animal/animal-detalhes/ani
 import { RegistroVacinaCadastrarComponent } from './components/registro-vacina/registro-vacina-cadastrar/registro-vacina-cadastrar.component';
 import { RegistroVacinaDetalhesComponent } from './components/registro-vacina/registro-vacina-detalhes/registro-vacina-detalhes.component';
 import { VendaVenderComponent } from './components/venda/venda-vender/venda-vender.component';
+import { VendaDetalhesComponent } from './components/venda/venda-detalhes/venda-detalhes.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { VendaVenderComponent } from './components/venda/venda-vender/venda-vend
     AnimalDetalhesComponent,
     RegistroVacinaCadastrarComponent,
     RegistroVacinaDetalhesComponent,
-    VendaVenderComponent
+    VendaVenderComponent,
+    VendaDetalhesComponent
   ],
   imports: [
     BrowserModule,

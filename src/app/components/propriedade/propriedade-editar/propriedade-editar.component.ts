@@ -13,13 +13,7 @@ import { Municipio } from 'src/app/models/municipio';
 })
 export class PropriedadeEditarComponent implements OnInit {
 
-  propriedade:Propriedade = {
-    id: 0,
-    id_produtor: 0,
-    id_municipio: 0,
-    nome_propriedade: "",
-    incricao_estadual: ""
-  }
+  propriedade = new Propriedade
 
   municipio:Municipio = {
     id: 0,
@@ -42,6 +36,7 @@ export class PropriedadeEditarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.get()
     this.getMunicipios()
   }

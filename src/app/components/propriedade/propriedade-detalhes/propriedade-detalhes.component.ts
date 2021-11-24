@@ -20,14 +20,7 @@ export class PropriedadeDetalhesComponent implements OnInit {
   mostrar:boolean = false
   produtor = new Produtor()
 
-  propriedade:Propriedade = {
-    id: 0,
-    id_produtor: 0,
-    id_municipio: 0,
-    nome_propriedade: "",
-    incricao_estadual: ""
-  }
-
+  propriedade = new Propriedade
   municipio:Municipio = {
     id: 0,
     nome: ""
@@ -44,6 +37,7 @@ export class PropriedadeDetalhesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.get()
   }
 

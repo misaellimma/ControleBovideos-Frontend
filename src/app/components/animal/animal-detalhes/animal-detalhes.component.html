@@ -3,22 +3,43 @@
 <div  class="card my-3">
     <div class="card-body">
         <div class="form-group mb-3">
-            <label class="form-label">Proprietário: {{ produtor.nome }}</label>
+            <label class="form-label">Nome da propriedade: {{ rebanho.nome_propriedade }} </label>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">Nome da propriedade: {{ propriedade.nome_propriedade }} </label>
-        </div>
-        <div class="form-group mb-3">
-            <label class="form-label">Especie do rebanho: {{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</label>
+            <label class="form-label">Especie do rebanho: {{ rebanho.especie }}</label>
         </div>
         <div class="form-group mb-3">
             <label class="form-label">Quantidade total: {{ rebanho.qtde_total }}</label>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">Quantidade de vacinados: {{ rebanho.qtde_vacinado }}</label>
+            <label class="form-label">Quantidade de vacinados Aftosa: {{ rebanho.qtde_vacinado_aftosa }}</label>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label">Quantidade de vacinados Brucelose: {{ rebanho.qtde_vacinado_brucelose }}</label>
         </div>
         <a (click)="voltar()" class="btn btn-outline-dark">Voltar</a>
-        <a href="venda" class="btn btn-outline-success mx-3">Vender</a>
-        <a href="registro-vacina-cadastrar" class="btn btn-outline-success ">Vacinar</a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-danger mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Cancelar entrada
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cancelar entrada do rebanho</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                Deseja cancelar a entrada do rebanho?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Sair</button>
+                <button (click)="delete()" class="btn btn-outline-danger mx-3">Cancelar entrada</button>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
 </div>

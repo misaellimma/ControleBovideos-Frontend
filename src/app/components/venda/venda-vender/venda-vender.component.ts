@@ -184,24 +184,10 @@ export class VendaVenderComponent implements OnInit {
   }
 
   getFinalidade(){
+    sessionStorage.setItem("reload", "true")
     this.finalidadeService.get().subscribe(
       data => {
         this.finalidades = data
-      }
-    )
-  }
-
-  verificaEspecie(){
-    if(this.getRebanho(this.venda.rebanho_destino) == this.getRebanho(this.venda.rebanho_origem)){
-      console.log("estamos aqui");
-      
-    }
-  }
-
-  getRebanho(id:number):any{
-    this.rebanhoService.GetId(id).subscribe(
-      data => {
-        return data.id
       }
     )
   }
@@ -265,9 +251,15 @@ export class VendaVenderComponent implements OnInit {
       valida = false
     }
 
-    if(this.venda.qtde_vendida == 0 || this.venda.qtde_vendida == null){
+    if(this.venda.qtde_vendida == null){
       this.validaQtde = true
       this.msgValidaQtde = "Campo obrigatorio!"
+      valida = false
+    }
+
+    if(this.venda.qtde_vendida < 0){
+      this.validaQtde = true
+      this.msgValidaQtde = "Não deve ser menor que 1!"
       valida = false
     }
 

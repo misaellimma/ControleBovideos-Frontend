@@ -11,6 +11,7 @@ import { Rebanho } from 'src/app/models/rebanho';
 import { RebanhoService } from 'src/app/services/rebanho.service';
 import { Propriedade } from 'src/app/models/propriedade';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
+import { RegistroVacinaOut } from 'src/app/models/registroVacinaOut';
 
 @Component({
   selector: 'app-registro-vacina-detalhes',
@@ -19,11 +20,13 @@ import { PropriedadeService } from 'src/app/services/propriedade.service';
 })
 export class RegistroVacinaDetalhesComponent implements OnInit {
 
-  registroVacina = new RegistroVacina
+  registroVacina = new RegistroVacinaOut
   vacina = new Vacina
   especie = new EspecieBovideo
   rebanho = new Rebanho
   propriedade = new Propriedade
+  erro:boolean = false
+  msgErro = ""
 
   constructor(
     private service:RegistrovacinaService,
@@ -37,6 +40,7 @@ export class RegistroVacinaDetalhesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.get()
   }
 
@@ -46,42 +50,24 @@ export class RegistroVacinaDetalhesComponent implements OnInit {
     this.service.GetId(id).subscribe(
       data => {
         this.registroVacina = data
-        this.getVacina(data.id_vacina)
-        this.getRebanho(data.id_rebanho)
         console.log(data)
         
       }
     )
   }
 
-  getVacina(id:number){
-    this.VacinaService.GetId(id).subscribe(
-      data => {
-        this.vacina = data
-      }
-    )
-  }
+  delete(){
+    this.erro = false
+    const id = Number(this.route.snapshot.paramMap.get('id'))
 
-  getRebanho(id:number){
-    this.rebanhoService.GetId(id).subscribe(
+    this.service.Delete(id).subscribe(
       data => {
-        this.rebanho = data
-        this.getEspecie(data.id_especie)
-        this.getPropriedade(data.id_propriedade)
-      }
-    )
-  }
-
-  getPropriedade(id:number){
-    this.propriedadeService.GetId(id).subscribe(
-      data => this.propriedade = data
-    )
-  }
-
-  getEspecie(id:number){
-    this.especieService.GetId(id).subscribe(
-      data => {
-        this.especie = data
+        console.log(data);
+        
+      },
+      error => {
+        this.msgErro = error.error
+        this.erro = true
       }
     )
   }

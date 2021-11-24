@@ -1,5 +1,3 @@
-import { Data } from "@angular/router";
-
 export class RegistroVacina {
     id?: number
     id_rebanho: number = 0

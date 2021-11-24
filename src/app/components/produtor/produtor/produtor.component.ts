@@ -29,6 +29,10 @@ export class ProdutorComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("reload") == "true"){
+      window.location.reload()
+      sessionStorage.setItem("reload", "false")
+    }
     this.getAll()
   }
   

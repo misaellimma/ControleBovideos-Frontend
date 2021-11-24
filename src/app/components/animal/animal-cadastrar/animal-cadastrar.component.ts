@@ -45,6 +45,7 @@ export class AnimalCadastrarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.getEspecie()
   }
 
@@ -137,9 +138,15 @@ export class AnimalCadastrarComponent implements OnInit {
       valida = false
     }
 
-    if(this.rebanho.qtde_total == 0 || this.rebanho.qtde_total == null){
+    if(this.rebanho.qtde_total == null){
       this.validaQtdeAnimais = true
       this.msgValidaQtdeAnimais = "Campo obrigatorio!"
+      valida = false
+    }
+
+    if(this.rebanho.qtde_total < 1 ){
+      this.validaQtdeAnimais = true
+      this.msgValidaQtdeAnimais = "Não deve ser menor que 1!"
       valida = false
     }
 

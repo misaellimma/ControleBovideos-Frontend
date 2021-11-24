@@ -40,6 +40,7 @@ export class PropriedadeCadastrarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.getMunicipios()
   }
 
@@ -61,8 +62,8 @@ export class PropriedadeCadastrarComponent implements OnInit {
     this.validaInscricao = false
     console.log(this.propriedade);
     
-    if(this.propriedade.incricao_estadual.length > 0){
-      this.service.GetValidaInscricao(this.propriedade.incricao_estadual).subscribe(
+    if(this.propriedade.inscricao_estadual.length > 0){
+      this.service.GetValidaInscricao(this.propriedade.inscricao_estadual).subscribe(
         data => {
           console.log(data);
         },
@@ -127,7 +128,7 @@ export class PropriedadeCadastrarComponent implements OnInit {
       valida = false
     }
 
-    if(this.propriedade.incricao_estadual == ""){
+    if(this.propriedade.inscricao_estadual == ""){
       this.validaInscricao = true
       this.msgValidaInscricao = "Campo obrigatorio!"
       valida = false

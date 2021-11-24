@@ -43,6 +43,7 @@ export class ProdutorDetalhesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.get()
   }
 

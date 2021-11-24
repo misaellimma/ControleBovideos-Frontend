@@ -9,6 +9,7 @@ import { PropriedadeService } from 'src/app/services/propriedade.service';
 import { RebanhoService } from 'src/app/services/rebanho.service';
 import { RegistrovacinaService } from 'src/app/services/registrovacina.service';
 import { Location } from '@angular/common';
+import { RebanhoOut } from 'src/app/models/rebanhoOut';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { Location } from '@angular/common';
 })
 export class AnimalDetalhesComponent implements OnInit {
 
-  rebanho = new Rebanho
+  rebanho = new RebanhoOut
   propriedade = new Propriedade
   produtor = new Produtor
   registroVacina: RegistroVacina[] = []
@@ -33,6 +34,7 @@ export class AnimalDetalhesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("reload", "true")
     this.get()
   }
 
@@ -43,30 +45,15 @@ export class AnimalDetalhesComponent implements OnInit {
       data => {
         this.rebanho = data
         console.log(data);
-        this.getPropriedade(Number(data.id_propriedade))
       }
     )
   }
 
-  getPropriedade(id: number){
-    this.propriedadeService.GetId(id).subscribe(
-      data => {
-        this.propriedade = data
-        this.getProdutor(Number(data.id_produtor))
-      }
+  delete(){
+    const id = Number(this.route.snapshot.paramMap.get('id'))
+    this.service.Delete(id).subscribe(
+      data => console.log(data)
     )
-  }
-
-  getProdutor(id:number){
-    this.produtorService.GetId(id).subscribe(
-      data =>{
-        this.produtor = data
-      }
-    )
-  }
-
-  getRegistroVacina(){
-    this.registroService.GetId
   }
 
   voltar(){

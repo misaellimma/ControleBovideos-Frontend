@@ -24,6 +24,10 @@ export class VendaService {
     return this.http.get(API + 'venda=' + id)
   }
 
+  GetId(id: number): Observable<any>{
+    return this.http.get(API + id)
+  }
+
   Add(venda: Venda): Observable<Venda>{
     return this.http.post<Venda>(API, venda)
   }

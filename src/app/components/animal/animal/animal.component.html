@@ -5,15 +5,15 @@
         <form>
             <label class="form-label">Informe o CPF do produtor: </label>
             <div class="form-group mb-3">
-                <input class="form-control me-2" type="search" placeholder="000.000.000-00" aria-label="Search" name="cpf" [(ngModel)]="cpf">
+                <input class="form-control me-2" type="text" placeholder="000.000.000-00" ng-reflect-model="28" name="cpf" [(ngModel)]="cpf">
                 <button (click)="getCpf()" class="btn btn-outline-success mt-3" >Procurar</button>
                 <a class="btn btn-outline-primary mx-3 mt-3" href="/animal-cadastrar">Cadastrar Rebanho</a>
             </div>
-            <div class="alert alert-danger" *ngIf="erro">
-                {{errorMessage}}
-            </div>
         </form>
     </div>
+</div>
+<div class="alert alert-danger" *ngIf="erro">
+    {{errorMessage}}
 </div>
 
 <table class="table border rounded-circle table-striped mb-0 " *ngIf="ocultar">
@@ -22,16 +22,14 @@
             <th scope="col"> Especie</th>
             <th scope="col">| Propriedade</th>
             <th scope="col">| Quantidade </th>
-            <th scope="col">| Vacinados</th>
             <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let rebanho of rebanhos">
-            <td>{{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</td>
-            <td>| {{ rebanho.id_propriedade }}</td>
+            <td>{{ rebanho.especie }}</td>
+            <td>| {{ rebanho.nome_propriedade }}</td>
             <td>| {{ rebanho.qtde_total }}</td>
-            <td>| {{ rebanho.qtde_vacinado }}</td>
             <td class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="animal/{{ rebanho.id }}" class="btn btn-outline-primary btn-sm">Detalhes</a>
             </td>

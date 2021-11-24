@@ -12,20 +12,13 @@ import { PropriedadeService } from 'src/app/services/propriedade.service';
 })
 export class PropriedadeComponent implements OnInit {
 
-  ocultar:boolean = false
-  propriedades = [{
-    id: 0,
-    id_produtor: 0,
-    nome_produtor: "",
-    incricao_estadual: "",
-    nome_propriedade: ""
-  }]
+  mostrar:boolean = false
   produtor = new Produtor()
   form:FormGroup
   inscricao:any
   errorMessage = ""
   erro :boolean = false
-  //propriedades:Propriedade[] = []
+  propriedades:Propriedade[] = []
   
   constructor(
     private service:ProdutorService,
@@ -38,6 +31,10 @@ export class PropriedadeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("reload") == "true"){
+      window.location.reload()
+      sessionStorage.setItem("reload", "false")
+    }
     this.getAll()
   }
 
@@ -46,7 +43,7 @@ export class PropriedadeComponent implements OnInit {
     this.propriedadeService.GetInscricao(inscricao).subscribe(
       data => {
         this.propriedades.push(data)
-        this.ocultar = true
+        this.mostrar = true
       },
       error => {
         this.errorMessage = error.error,
@@ -58,7 +55,12 @@ export class PropriedadeComponent implements OnInit {
     this.propriedadeService.get().subscribe(
       data => {
         this.propriedades = data
-        this.ocultar = true
+        if(this.propriedades.length > 0){
+          this.mostrar = true
+        }else{
+          this.erro = true
+          this.errorMessage = "Não existe propriedade cadastrada"
+        }
       })
     
   }
@@ -72,7 +74,7 @@ export class PropriedadeComponent implements OnInit {
   }
 
   onSubmit(){
-    this.ocultar = false
+    this.mostrar = false
     this.erro = false
     this.inscricao = this.form.value
     if(this.form.invalid){

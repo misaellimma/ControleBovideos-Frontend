@@ -5,7 +5,7 @@
         <form>
             <div class="form-group mb-3">
                 <label class="form-label">Informe a Incrição Estadual da propriedade: </label>
-                <input class="form-control me-2" type="text" name="incricao_estadual" [(ngModel)]="propriedade.incricao_estadual" value="123">
+                <input class="form-control me-2" type="text" name="inscricao_estadual" placeholder="000.000.000" [(ngModel)]="propriedade.inscricao_estadual">
                 <button class="btn btn-outline-dark mt-3" (click)="getInscricao()">Procurar</button>
                 <a class="btn btn-outline-success mx-3 mt-3" href="/registro-vacina-cadastrar">Cadastrar</a>
             </div>
@@ -27,8 +27,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let registroVacina of registroVacinas">
-            <td> {{ registroVacina.id_rebanho }}</td>
-            <td>| {{ registroVacina.id_vacina }}</td>
+            <td> {{ registroVacina.rebanho }}</td>
+            <td>| {{ registroVacina.vacina }}</td>
             <td>| {{ registroVacina.data }}</td>
             <td>| {{ registroVacina.qtde_vacinado }}</td>
             <td class="d-grid gap-2 d-md-flex justify-content-md-end">

@@ -20,17 +20,13 @@ export class RebanhoService {
     return this.http.get<Rebanho[]>(`${API}especie=${id}`);
   }
 
-  GetId(id: number): Observable<Rebanho>{
-    return this.http.get<Rebanho>(`${API}${id}`);
+  GetId(id: number): Observable<any>{
+    return this.http.get<any>(`${API}${id}`);
   }
 
   GetProdutor(idprodutor: number): Observable<any>{
-    //console.log("service "+idprodutor);
-    let aa = this.http.get<Rebanho[]>(`${API}idprodutor=${idprodutor}`);
-    //console.log(aa);
-
-    
-    return this.http.get<Rebanho[]>(API + 'idprodutor=' + idprodutor)
+  
+    return this.http.get<any>(API + 'idprodutor=' + idprodutor)
   }
 
   GetPropriedade(idpropriedade: number): Observable<any>{

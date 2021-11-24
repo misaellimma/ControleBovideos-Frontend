@@ -3,31 +3,31 @@
 <div  class="card my-3">
     <div class="card-body register-form">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <label class="form-label">Informe a Incrição Estadual da propriedade: </label>
+            <label class="form-label">Informe a Inscrição Estadual da propriedade: </label>
             <div class="form-group mb-3">
                 <input class="form-control me-2" type="search" placeholder="000.000.000" aria-label="Search" formControlName="inscricao">
                 <button class="btn btn-outline-dark mt-3" type="submit">Procurar</button>
                 <a class="btn btn-outline-success mx-3 mt-3" href="/propriedade-cadastrar">Cadastrar</a>
             </div>
-            <div class="alert alert-danger" *ngIf="erro">
-                {{errorMessage}}
-            </div>
         </form>
     </div>
 </div>
 
-<table class="table border rounded-circle table-striped mb-0 " *ngIf="ocultar">
+<div class="alert alert-danger" *ngIf="erro">
+    {{errorMessage}}
+</div>
+<table class="table border rounded-circle table-striped mb-0 " *ngIf="mostrar">
     <thead >
         <tr>
             <th scope="col"> Nome da propriedade</th>
-            <th scope="col">| Incricao estadual</th>
+            <th scope="col">| Inscricao estadual</th>
             <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let propriedade of propriedades">
             <td> {{ propriedade.nome_propriedade }}</td>
-            <td>| {{ propriedade.incricao_estadual }}</td>
+            <td>| {{ propriedade.inscricao_estadual }}</td>
             <td class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="propriedade/{{ propriedade.id }}" class="btn btn-outline-dark btn-sm">Detalhes</a>
             </td>
