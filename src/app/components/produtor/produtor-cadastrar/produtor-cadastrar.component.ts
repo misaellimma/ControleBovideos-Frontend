@@ -59,8 +59,6 @@ export class ProdutorCadastrarComponent implements OnInit {
   }
 
   save(){
-    console.log(this.produtor)
-    console.log(this.endereco)
     if(this.validaForm()){
       this.postEndereco()
       this.voltar()
@@ -73,8 +71,7 @@ export class ProdutorCadastrarComponent implements OnInit {
     this.enderecoService.Add(this.endereco).subscribe(
       resp => {
         this.PostProdutor(Number(resp.id))
-      },
-      error => console.log(error)
+      }
     )
   }
 
@@ -100,9 +97,15 @@ export class ProdutorCadastrarComponent implements OnInit {
       valida = false
     }
 
-    if(this.produtor.nome == ""){
+    if(this.produtor.nome == ""  || this.produtor.nome.length < 3){
       this.validaNome = true
       this.msgValidaNome = "Campo obrigatorio!"
+      valida = false
+    }
+
+    if(this.produtor.nome.length < 3 || this.produtor.nome.length > 255){
+      this.validaNome = true
+      this.msgValidaNome = "O campo deve ter entre de 3 a 255 caracteres"
       valida = false
     }
 
@@ -138,9 +141,8 @@ export class ProdutorCadastrarComponent implements OnInit {
     
     if(this.produtor.cpf.length > 0){
       this.service.ValidaCpf(this.produtor.cpf).subscribe(
-        data => console.log(data),
+        data => {},
         error => {
-          console.log(error)
           this.validaCpf = true
           this.msgValidaCpf = error.error
         })

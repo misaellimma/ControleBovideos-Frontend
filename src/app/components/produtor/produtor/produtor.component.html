@@ -15,22 +15,23 @@
 <div class="alert alert-danger" *ngIf="erro">
     {{errorMessage}}
 </div>
-
-<table class="table border rounded-circle table-striped mb-0 " *ngIf="mostrar">
-    <thead >
-        <tr>
-            <th scope="col">CPF</th>
-            <th scope="col">| Nome</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let produtor of produtores">
-            <td>{{ produtor.cpf }}</td>
-            <td>| {{ produtor.nome }}</td>
-            <td class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="produtor/{{ produtor.id }}" class="btn btn-outline-primary btn-sm">Detalhes</a>
-            </td>
-        </tr>  
-      </tbody>
-</table>
+<div class="table-responsive-md">
+    <table class="table border rounded-circle table-striped mb-5 " *ngIf="mostrar">
+        <thead >
+            <tr>
+                <th scope="col">CPF</th>
+                <th scope="col">| Nome</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produtor of produtores">
+                <td>{{ produtor.cpf }}</td>
+                <td>| {{ produtor.nome }}</td>
+                <td class="d-grid  justify-content-md-end">
+                    <a href="produtor/{{ produtor.id }}" class="btn btn-outline-primary btn-sm">Detalhes</a>
+                </td>
+            </tr>  
+          </tbody>
+    </table>
+</div>

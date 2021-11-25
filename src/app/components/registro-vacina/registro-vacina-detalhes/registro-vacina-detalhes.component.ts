@@ -30,10 +30,6 @@ export class RegistroVacinaDetalhesComponent implements OnInit {
 
   constructor(
     private service:RegistrovacinaService,
-    private VacinaService:VacinaService,
-    private especieService:EspecieBovideoService,
-    private propriedadeService:PropriedadeService,
-    private rebanhoService:RebanhoService,
     private location: Location,
     private route: ActivatedRoute
 
@@ -62,14 +58,13 @@ export class RegistroVacinaDetalhesComponent implements OnInit {
 
     this.service.Delete(id).subscribe(
       data => {
-        console.log(data);
-        
       },
       error => {
         this.msgErro = error.error
         this.erro = true
       }
     )
+    this.voltar()
   }
 
   voltar(){

@@ -1,5 +1,3 @@
-import { Data } from "@angular/router";
-
 export class Venda {
     id: number = 0
     rebanho_origem: number = 0

@@ -8,8 +8,8 @@
                 <input class="form-control" type="text" placeholder="000.000.000-00" onload="limpa()" name="cpf" id="cpf" [(ngModel)]="produtor.cpf">
             </div>
             
-            <button (click)="verificaCpf('compra')" class="btn btn-outline-success">Pesquisar Compras</button>
-            <button (click)="verificaCpf('venda')" class="btn btn-outline-success mx-3">Pesquisar vendas</button>
+            <button (click)="verificaCpf('compra')" class="btn btn-outline-success">Pesquisar compras</button>
+            <button (click)="verificaCpf('venda')" class="btn btn-outline-success m-2">Pesquisar vendas</button>
             <a href="venda-vender" class="btn btn-outline-primary ">Realizar uma venda</a>
         </form>
     </div>
@@ -29,8 +29,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let venda of vendas">
-            <td> {{ venda.rebanho_origem }}</td>
-            <td>| {{ venda.rebanho_destino }}</td>
+            <td> {{ venda.propriedade_origem }}</td>
+            <td>| {{ venda.propriedade_destino }}</td>
             <td>| {{ venda.data }}</td>
             <td>| {{ venda.qtde_vendida }}</td>
             <td class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -39,18 +39,3 @@
         </tr>  
     </tbody>
 </table>
-<script>
-$(function () {
-    console.log("tets")
-});
-    var cpf
-    console.log(cpf)
-    cpf = document.querySelector("#cpf");
-    cpf.addEventListener('onload', function() {
-        Location.reload();
-    })
-    function limpa(){
-        document.getElementById('cpf').reset();
-
-    }
-</script>

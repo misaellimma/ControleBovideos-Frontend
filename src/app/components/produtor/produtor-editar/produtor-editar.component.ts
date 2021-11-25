@@ -45,7 +45,6 @@ export class ProdutorEditarComponent implements OnInit {
     private service: ProdutorService,
     private municipioService:MunicipioService,
     private enderecoService:EnderecoService,
-    private router: Router,
     private location: Location,
     private route: ActivatedRoute
   ) {  }
@@ -92,12 +91,12 @@ export class ProdutorEditarComponent implements OnInit {
 
   PutEndereco(id:number, endereco:Endereco){
     endereco.numero = String(endereco.numero)
-    this.enderecoService.Update(id, endereco).subscribe(data => console.log(data)
+    this.enderecoService.Update(id, endereco).subscribe(data => {}
     )
   }
 
   PutProdutor(id:number, produtor:Produtor){
-    this.service.Update(id, produtor).subscribe(data => console.log(data)
+    this.service.Update(id, produtor).subscribe(data => {}
     )
   }
 
@@ -121,7 +120,6 @@ export class ProdutorEditarComponent implements OnInit {
       this.msgValidaNome = "Campo obrigatorio!"
       valida = false
     }
-    console.log(this.endereco.numero + "aa");
     
     if(this.endereco.numero == "null" || this.endereco.numero == ""){
       this.validaNumero = true

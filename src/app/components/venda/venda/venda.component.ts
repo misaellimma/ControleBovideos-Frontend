@@ -10,6 +10,7 @@ import { RebanhoService } from 'src/app/services/rebanho.service';
 import { VendaService } from 'src/app/services/venda.service';
 import { Location } from '@angular/common';
 import { Venda } from 'src/app/models/venda';
+import { VendaOutput } from 'src/app/models/vendaOutput';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class VendaComponent implements OnInit {
   finalidades:FinalidadeVenda[] = []
   rebanhos: Rebanho[] = []
   especies:EspecieBovideo[] = []
-  vendas:Venda[] = []
+  vendas:VendaOutput[] = []
 
 
   constructor(

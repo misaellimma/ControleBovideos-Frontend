@@ -9,6 +9,7 @@ import { RebanhoService } from 'src/app/services/rebanho.service';
 import { PropriedadeService } from 'src/app/services/propriedade.service';
 import { Produtor } from 'src/app/models/produtor';
 import { ProdutorService } from 'src/app/services/produtor.service';
+import { VendaOutput } from 'src/app/models/vendaOutput';
 
 
 @Component({
@@ -21,11 +22,7 @@ export class VendaDetalhesComponent implements OnInit {
   erro:boolean = false
   msgErro = ""
 
-  venda = new Venda
-  rebanhoOrigem = new Rebanho
-  rebanhoDestino = new Rebanho
-  propriedadeOrigem = new Propriedade
-  propriedadeDestino = new Propriedade
+  venda = new VendaOutput
   produtorOrigem = new Produtor
   produtorDestino = new Produtor
 
@@ -33,9 +30,7 @@ export class VendaDetalhesComponent implements OnInit {
     private location: Location, 
     private route: ActivatedRoute,
     private service: VendaService,
-    private servicerebanho: RebanhoService,
-    private serviceprodutor: ProdutorService,
-    private servicepropriedade: PropriedadeService
+    private serviceprodutor: ProdutorService
 
   ) { }
 
@@ -50,36 +45,8 @@ export class VendaDetalhesComponent implements OnInit {
     this.service.GetId(id).subscribe(
       data => {
         this.venda = data
-        this.getRebanho("origem",this.venda.rebanho_origem)
-        this.getRebanho("destino",this.venda.rebanho_destino)
-      }
-    )
-  }
-
-  getRebanho(str:string, id:number){
-    this.servicerebanho.GetId(id).subscribe(
-      data => {
-        if(str == "origem"){
-          this.rebanhoOrigem = data
-          this.getPropriedade(str, this.rebanhoOrigem.id_propriedade)
-        }else{
-          this.rebanhoDestino = data
-          this.getPropriedade(str, this.rebanhoDestino.id_propriedade)
-        }
-      }
-    )
-  }
-
-  getPropriedade(str:string, id:number){
-    this.servicepropriedade.GetId(id).subscribe(
-      data => {
-        if(str == "origem"){
-          this.propriedadeOrigem = data
-          this.getProdutor(str, this.propriedadeOrigem.id_produtor)
-        }else{
-          this.propriedadeDestino = data
-          this.getProdutor(str, this.propriedadeDestino.id_produtor)
-        }
+        this.getProdutor("origem", this.venda.id_propriedade_origem)
+        this.getProdutor("destino", this.venda.id_propriedade_destino)
       }
     )
   }
