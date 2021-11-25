@@ -25,7 +25,6 @@ export class VendaVenderComponent implements OnInit {
   produtorDestino = new Produtor
 
   rebanhoOrigem = new Rebanho
-  rebanhoDestino = new Rebanho
 
   venda = new Venda
 
@@ -41,20 +40,20 @@ export class VendaVenderComponent implements OnInit {
   validaCpfDestino:boolean = false
   validaPropriedadeOrigem:boolean = false
   validaPropriedadeDestino:boolean = false
-  validaRebanhoOrigem:boolean = false
-  validaRebanhoDestino:boolean = false
+  validaRebanho:boolean = false
   validaFinalidade:boolean = false
   validaQtde:boolean = false
+  validaData:boolean = false
 
   msgErro = ""
   msgValidaCpfOrigem = ""
   msgValidaCpfDestino = ""
   msgValidaPropriedadeOrigem = ""
   msgValidaPropriedadeDestino = ""
-  msgValidaRebanhoOrigem = ""
-  msgValidaRebanhoDestino = ""
+  msgValidaRebanho = ""
   msgValidaFinalidade = ""
   msgValidaQtde = ""
+  msgValidaData = ""
 
   constructor(
     private service: VendaService,
@@ -71,11 +70,11 @@ export class VendaVenderComponent implements OnInit {
 
   save(){
     this.erro = false
-    let data = new Date                         //2021-11-22T15:53:53.15
-    this.venda.data = formatDate(data, 'yyyy-MM-ddThh:mm:ss', 'en-US')
+
     this.venda.id_finalidade_venda = Number(this.venda.id_finalidade_venda)
-    this.venda.rebanho_origem = Number(this.venda.rebanho_origem)
-    this.venda.rebanho_destino = Number(this.venda.rebanho_destino)
+    this.venda.id_propriedade_origem = Number(this.venda.id_propriedade_origem)
+    this.venda.id_propriedade_destino = Number(this.venda.id_propriedade_destino)
+    this.venda.id_especie = Number(this.venda.id_especie)
     if(this.validaForm())
     {
       this.postVenda()
@@ -165,20 +164,12 @@ export class VendaVenderComponent implements OnInit {
     )
   }
 
-  getRebanhos(str:string){
-    let id
-    if(str == "origem"){
-      id = this.rebanhoOrigem.id_propriedade
-    }else{
-      id = this.rebanhoDestino.id_propriedade
-    }
+  getRebanhos(){
+    let id = this.venda.id_propriedade_origem
+
     this.rebanhoService.GetPropriedade(id).subscribe(
       data => {
-        if(str == "origem"){
-          this.rebanhosOrigem = data
-        }else{
-          this.rebanhosDestino = data
-        }
+        this.rebanhosOrigem = data
       }
     )
   }
@@ -202,9 +193,9 @@ export class VendaVenderComponent implements OnInit {
   
     this.validaPropriedadeOrigem = false
     this.validaPropriedadeDestino = false
-    this.validaRebanhoOrigem = false
-    this.validaRebanhoDestino = false
+    this.validaRebanho= false
     this.validaQtde = false
+    this.validaData = false
     this.validaFinalidade = false
 
     let valida = true
@@ -230,17 +221,17 @@ export class VendaVenderComponent implements OnInit {
       valida = false
     }
 
-    if(this.venda.rebanho_origem == 0 || this.venda.rebanho_origem == null)
+    if(this.venda.id_propriedade_origem == 0 || this.venda.id_propriedade_origem == null)
     {
-      this.validaRebanhoOrigem = true
-      this.msgValidaRebanhoOrigem = "Campo obrigatorio!"
+      this.validaPropriedadeOrigem = true
+      this.msgValidaPropriedadeOrigem = "Campo obrigatorio!"
       valida = false
     }
     
-    if(this.venda.rebanho_destino == 0 || this.venda.rebanho_destino == null)
+    if(this.venda.id_propriedade_destino == 0 || this.venda.id_propriedade_destino == null)
     {
-      this.validaRebanhoDestino = true
-      this.msgValidaRebanhoDestino = "Campo obrigatorio!"
+      this.validaPropriedadeDestino = true
+      this.msgValidaPropriedadeDestino = "Campo obrigatorio!"
       valida = false
     }
 
@@ -251,15 +242,28 @@ export class VendaVenderComponent implements OnInit {
       valida = false
     }
 
+    if(this.venda.id_especie == 0 || this.venda.id_especie == null)
+    {
+      this.validaRebanho = true
+      this.msgValidaRebanho = "Campo obrigatorio!"
+      valida = false
+    }
+
     if(this.venda.qtde_vendida == null){
       this.validaQtde = true
       this.msgValidaQtde = "Campo obrigatorio!"
       valida = false
     }
 
-    if(this.venda.qtde_vendida < 0){
+    if(this.venda.qtde_vendida < 1){
       this.validaQtde = true
       this.msgValidaQtde = "Não deve ser menor que 1!"
+      valida = false
+    }
+
+    if(this.venda.data == ""){
+      this.validaData = true
+      this.msgValidaData = "Campo obrigatorio!"
       valida = false
     }
 

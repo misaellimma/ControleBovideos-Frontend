@@ -3,23 +3,23 @@
 <div  class="card my-3">
     <div class="card-body register-form">
         <div class="form-group mb-3">
-            <label class="form-label">Nome: {{ produtor.nome }}</label>
+            <label class="form-label"><strong>Nome: </strong>{{ produtor.nome }}</label>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">CPF: {{ produtor.cpf }}</label>
+            <label class="form-label"><strong>CPF: </strong>{{ produtor.cpf }}</label>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">Município: {{ municipio.nome }}</label>
+            <label class="form-label"><strong>Município: </strong>{{ municipio.nome }}</label>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">Logradouro: {{ endereco.rua }}</label>
+            <label class="form-label"><strong>Logradouro: </strong>{{ endereco.rua }}</label>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">Numero: {{ endereco.numero }}</label>
+            <label class="form-label"><strong>Numero: </strong>{{ endereco.numero }}</label>
         </div>
         
         <a (click)="voltar()" class="btn btn-outline-dark ">Voltar</a>
-        <a href="produtor-editar/{{ produtor.id }}" class="btn btn-outline-success mx-3">Editar</a>
+        <a href="produtor-editar/{{ produtor.id }}" class="btn btn-outline-primary mx-3">Editar</a>
         <div *ngIf="propbool">
             <hr>
             <h4>Propriedades</h4>
@@ -36,7 +36,7 @@
                         <td>{{ propriedade.nome_propriedade }}</td>
                         <td>| {{ propriedade.inscricao_estadual }}</td>
                         <td class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="propriedade/{{ propriedade.id }}" class="btn btn-outline-primary btn-sm">Selecionar</a>
+                            <a href="propriedade/{{ propriedade.id }}" class="btn btn-outline-dark btn-sm">Selecionar</a>
                         </td>
                     </tr>  
                   </tbody>

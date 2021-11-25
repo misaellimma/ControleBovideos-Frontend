@@ -3,45 +3,58 @@
 <div  class="card my-3">
     <div class="card-body register-form">
         <form >
-            <div class="form-group mb-3">
-                <label class="form-label">Nome: </label>
-                <input class="form-control" type="text" value="{{ produtor.nome }}" id="nome" name="nome" [(ngModel)]="produtor.nome" required>
-                <div *ngIf="validaNome" class="text-danger">
-                    {{ msgValidaNome }}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Nome: </label>
+                        <input class="form-control" type="text" value="{{ produtor.nome }}" id="nome" name="nome" [(ngModel)]="produtor.nome" required>
+                        <div *ngIf="validaNome" class="text-danger">
+                            {{ msgValidaNome }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">CPF: </label>
+                        <input class="form-control" type="number" value="{{ produtor.cpf }}" id="cpf" name="cpf" [(ngModel)]="produtor.cpf" disabled>
+                    </div>
                 </div>
             </div>
-            <div class="form-group mb-3">
-                <label class="form-label">CPF: </label>
-                <input class="form-control" type="number" value="{{ produtor.cpf }}" id="cpf" name="cpf" [(ngModel)]="produtor.cpf" disabled>
-                
-            </div>
-            <label class="form-label">Selecione o município: </label>
-            <div class="form-group mb-3">
-                <select class="form-select" id="id_municipio" name="id_municipio" [(ngModel)]="endereco.id_municipio">
-                    <option value="{{ municipio.id }}">{{ municipio.nome }}</option>
-                    <option value="">---------------</option>
-                    <option *ngFor="let m of municipios" value="{{ m.id }}">{{ m.nome }}</option>
-                </select>
-                <div *ngIf="validaMunicipio" class="text-danger">
-                    {{ msgValidaMunicipio }}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Selecione o município: </label>
+                        <select class="form-select" id="id_municipio" name="id_municipio" [(ngModel)]="endereco.id_municipio">
+                            <option value="{{ municipio.id }}">{{ municipio.nome }}</option>
+                            <option value="">---------------</option>
+                            <option *ngFor="let m of municipios" value="{{ m.id }}">{{ m.nome }}</option>
+                        </select>
+                        <div *ngIf="validaMunicipio" class="text-danger">
+                            {{ msgValidaMunicipio }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Rua: </label>
+                        <input class="form-control" type="text" value="{{ endereco.rua }}" id="rua" name="rua" [(ngModel)]="endereco.rua">
+                        <div *ngIf="validaRua" class="text-danger">
+                            {{ msgValidaRua }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Numero: </label>
+                        <input class="form-control" type="number" value="{{ endereco.numero }}" id="numero" name="numero" [(ngModel)]="endereco.numero">
+                        <div *ngIf="validaNumero" class="text-danger">
+                            {{ msgValidaNumero }}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group mb-3">
-                <label class="form-label">Rua: </label>
-                <input class="form-control" type="text" value="{{ endereco.rua }}" id="rua" name="rua" [(ngModel)]="endereco.rua">
-                <div *ngIf="validaRua" class="text-danger">
-                    {{ msgValidaRua }}
-                </div>
-            </div>
-            <div class="form-group mb-3">
-                <label class="form-label">Numero: </label>
-                <input class="form-control" type="number" value="{{ endereco.numero }}" id="numero" name="numero" [(ngModel)]="endereco.numero">
-                <div *ngIf="validaNumero" class="text-danger">
-                    {{ msgValidaNumero }}
-                </div>
-            </div>
-            <a (click)="voltar()" class="btn btn-outline-danger">Voltar</a>
-            <button (click)="save()" class="btn btn-outline-success mx-3">Salvar</button>
+            <a (click)="voltar()" class="btn btn-outline-dark">Voltar</a>
+            <button (click)="save()" class="btn btn-outline-primary mx-3">Salvar</button>
         </form>
         
     </div>

@@ -4,28 +4,38 @@
     <div class="card-body register-form">
         <form >
             <div class="form-group mb-3">
-                <label class="form-label">Vendedor: {{ produtorOrigem.nome }} </label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Vendedor:</strong> {{ produtorOrigem.nome }} </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label mr-5"><strong>Propriedade: </strong>{{ venda.propriedade_origem }}</label>
+                    </div>
+                </div>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Propriedade: {{ venda.propriedade_origem }}</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong> Comprador: </strong>{{ produtorDestino.nome }}</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong> Propriedade: </strong>{{ venda.propriedade_destino }}</label>
+                    </div>
+                </div>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Comprador: {{ produtorDestino.nome }}</label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Propriedade: {{ venda.propriedade_destino }}</label>
+                <label class="form-label"><strong>Finalidade da venda:</strong> {{ venda.finalidade_venda }}</label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Finalidade da venda: {{ venda.finalidade_venda }}</label>
+                <label class="form-label"><strong>Espécie do rebanho: </strong>{{ venda.especie }} </label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Espécie do rebanho: {{ venda.especie }} </label>
+                <label class="form-label"><strong>Data da venda: </strong>{{ venda.data }}</label>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Data da venda: {{ venda.data }}</label>
-            </div>
-            <div class="form-group mb-3">
-                <label class="form-label">Quantidade de animais vendidos: {{ venda.qtde_vendida }}</label>
+                <label class="form-label"><strong>Quantidade de animais vendidos: </strong>{{ venda.qtde_vendida }}</label>
             </div>
             <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>
             <!-- Button trigger modal -->

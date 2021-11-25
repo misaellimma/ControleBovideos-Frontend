@@ -1,4 +1,4 @@
-<h2>Lista de vendas</h2>
+<h2>Vendas</h2>
 
 <div  class="card my-3">
     <div class="card-body register-form">
@@ -8,9 +8,9 @@
                 <input class="form-control" type="text" placeholder="000.000.000-00" onload="limpa()" name="cpf" id="cpf" [(ngModel)]="produtor.cpf">
             </div>
             
-            <button (click)="verificaCpf('compra')" class="btn btn-outline-success">Pesquisar compras</button>
-            <button (click)="verificaCpf('venda')" class="btn btn-outline-success m-2">Pesquisar vendas</button>
-            <a href="venda-vender" class="btn btn-outline-primary ">Realizar uma venda</a>
+            <button (click)="verificaCpf('compra')" class="btn btn-outline-dark">Pesquisar compras</button>
+            <button (click)="verificaCpf('venda')" class="btn btn-outline-dark m-2">Pesquisar vendas</button>
+            <a href="venda-vender" class="btn btn-outline-primary">Realizar uma venda</a>
         </form>
     </div>
 </div>

@@ -1,78 +1,32 @@
-<h2>Venda</h2>
-
-<div  class="card my-3">
-    <div class="card-body register-form">
-        <div class="container">
+<div class="container">
+    <h2>Vender</h2>
+    <div class="card my-3">
+        <div class="card-body register-form">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="card my-3">
-                        <div class="card-body register-form">
-                            <h3>Produtor de origem</h3>
-                            <hr>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Informe o CPF do produtor: </label>
-                                <input (blur)="getOrigem()" class="form-control me-2" type="text" placeholder="000.000.000-00" name="cpf" [(ngModel)]="produtorOrigem.cpf">
-                                <div class="text-danger" *ngIf="validaCpfOrigem">
-                                    {{ msgValidaCpfOrigem }}
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Selecione uma propriedade: </label>
-                                <select  class="form-select" name="id_propriedade" [(ngModel)]="rebanhoOrigem.id_propriedade" (blur)="getRebanhos('origem')">
-                                    <option *ngFor="let propriedade of propriedadesOrigem" value="{{ propriedade.id }}"> {{ propriedade.nome_propriedade }}</option>
-                                </select>
-                                <div class="text-danger" *ngIf="validaPropriedadeOrigem">
-                                    {{ msgValidaPropriedadeOrigem }}
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Selecione um rebanho: </label>
-                                <select class="form-select" name="rebanho_origem" [(ngModel)]="venda.rebanho_origem">
-                                    <option *ngFor="let rebanho of rebanhosOrigem" value="{{ rebanho.id }}">{{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</option>
-                                </select>
-                                <div class="text-danger" *ngIf="validaRebanhoOrigem">
-                                    {{ msgValidaRebanhoOrigem }}
-                                </div>
-                            </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Informe o CPF do vendedor: </label>
+                        <input (blur)="getOrigem()" class="form-control me-2" type="text" placeholder="000.000.000-00" name="cpf" [(ngModel)]="produtorOrigem.cpf">
+                        <div class="text-danger" *ngIf="validaCpfOrigem">
+                            {{ msgValidaCpfOrigem }}
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div  class="card my-3">
-                        <div class="card-body register-form">
-                            <h3>Produtor de destino</h3>
-                            <hr>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Informe o CPF do produtor: </label>
-                                <input (blur)="getDestino()" class="form-control me-2" type="text" placeholder="000.000.000-00" name="cpf" [(ngModel)]="produtorDestino.cpf">
-                                <div class="text-danger" *ngIf="validaCpfDestino">
-                                    {{ msgValidaCpfDestino }}
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Selecione uma propriedade: </label>
-                                <select class="form-select" name="id_propriedade" [(ngModel)]="rebanhoDestino.id_propriedade" (blur)="getRebanhos('destino')">
-                                    <option *ngFor="let propriedade of propriedadesDestino" value="{{ propriedade.id }}">{{ propriedade.nome_propriedade }}</option>
-                                </select>
-                                <div class="text-danger" *ngIf="validaPropriedadeDestino">
-                                    {{ msgValidaPropriedadeDestino }}
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Selecione um rebanho: </label>
-                                <select class="form-select" name="rebanho_origem" [(ngModel)]="venda.rebanho_destino">
-                                    <option *ngFor="let rebanho of rebanhosDestino" value="{{ rebanho.id }}">{{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</option>
-                                </select>
-                                <div class="text-danger" *ngIf="validaRebanhoDestino">
-                                    {{ msgValidaRebanhoDestino }}
-                                </div>
-                            </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Informe o CPF do comprador: </label>
+                        <input (blur)="getDestino()" class="form-control me-2" type="text" placeholder="000.000.000-00" name="cpf" [(ngModel)]="produtorDestino.cpf">
+                        <div class="text-danger" *ngIf="validaCpfDestino">
+                            {{ msgValidaCpfDestino }}
                         </div>
                     </div>
-                </div>
-            </div>
-            <div  class="card my-3">
-                <div class="card-body register-form">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Selecione um rebanho: </label>
+                        <select class="form-select" name="id_especie" [(ngModel)]="venda.id_especie">
+                            <option *ngFor="let rebanho of rebanhosOrigem" value="{{ rebanho.id_especie }}">{{ rebanho.id_especie == 1 ? "Bovino" : "Bubalino" }}</option>
+                        </select>
+                        <div class="text-danger" *ngIf="validaRebanho">
+                            {{ msgValidaRebanho }}
+                        </div>
+                    </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Selecione uma finalidade de venda: </label>
                         <select class="form-select" name="id_finalidade_venda" [(ngModel)]="venda.id_finalidade_venda">
@@ -82,11 +36,38 @@
                             {{ msgValidaFinalidade }}
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Selecione uma propriedade do vendedor: </label>
+                        <select  class="form-select" name="id_propriedade_origem" [(ngModel)]="venda.id_propriedade_origem" (blur)="getRebanhos()">
+                            <option *ngFor="let propriedade of propriedadesOrigem" value="{{ propriedade.id }}"> {{ propriedade.nome_propriedade }}</option>
+                        </select>
+                        <div class="text-danger" *ngIf="validaPropriedadeOrigem">
+                            {{ msgValidaPropriedadeOrigem }}
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Selecione uma propriedade do comprador: </label>
+                        <select class="form-select" name="id_propriedade_destino" [(ngModel)]="venda.id_propriedade_destino">
+                            <option *ngFor="let propriedade of propriedadesDestino" value="{{ propriedade.id }}">{{ propriedade.nome_propriedade }}</option>
+                        </select>
+                        <div class="text-danger" *ngIf="validaPropriedadeDestino">
+                            {{ msgValidaPropriedadeDestino }}
+                        </div>
+                    </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Quantidade de animais: </label>
                         <input class="form-control" type="number" name="qtde_vendida" [(ngModel)]="venda.qtde_vendida">
                         <div class="text-danger" *ngIf="validaQtde">
                             {{ msgValidaQtde }}
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Data da venda: </label>
+                        <input class="form-control" type="date" name="data" [(ngModel)]="venda.data">
+                        <div class="text-danger" *ngIf="validaData">
+                            {{ msgValidaData }}
                         </div>
                     </div>
                 </div>
@@ -95,7 +76,7 @@
                 {{ msgErro }}
             </div>
             <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>
-            <button (click)="save()" class="btn btn-outline-success my-2 mx-3">Realizar venda</button>
+            <button (click)="save()" class="btn btn-outline-primary my-2 mx-3">Realizar venda</button>
         </div>
     </div>
 </div>

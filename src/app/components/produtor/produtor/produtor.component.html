@@ -6,7 +6,7 @@
             <label class="form-label">Informe o CPF do produtor: </label>
             <div class="form-group mb-3">
                 <input class="form-control me-2" type="search" placeholder="000.000.000-00" aria-label="Search" formControlName="cpf">
-                <button class="btn btn-outline-success mt-3" type="submit">Procurar</button>
+                <button class="btn btn-outline-dark mt-3" type="submit">Procurar</button>
                 <a class="btn btn-outline-primary mx-3 mt-3" href="/produtor-cadastrar">Cadastrar</a>
             </div>
         </form>
@@ -29,7 +29,7 @@
                 <td>{{ produtor.cpf }}</td>
                 <td>| {{ produtor.nome }}</td>
                 <td class="d-grid  justify-content-md-end">
-                    <a href="produtor/{{ produtor.id }}" class="btn btn-outline-primary btn-sm">Detalhes</a>
+                    <a href="produtor/{{ produtor.id }}" class="btn btn-outline-dark btn-sm">Detalhes</a>
                 </td>
             </tr>  
           </tbody>

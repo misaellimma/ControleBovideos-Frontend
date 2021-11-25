@@ -3,40 +3,46 @@
 <div  class="card my-3">
     <div class="card-body register-form">
         <form >
-            <div class="form-group mb-3">
-                <label class="form-label">Informe o CPF do produtor: </label>
-                <input (blur)="getCpf()" class="form-control me-2" type="search" placeholder="000.000.000-00" aria-label="Search" name="cpf" [(ngModel)]="produtor.cpf">
-                <div class="text-danger" *ngIf="validaCpf">
-                    {{msgValidaCpf}}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Informe o CPF do produtor: </label>
+                        <input (blur)="getCpf()" class="form-control me-2" type="search" placeholder="000.000.000-00" aria-label="Search" name="cpf" [(ngModel)]="produtor.cpf">
+                        <div class="text-danger" *ngIf="validaCpf">
+                            {{msgValidaCpf}}
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Selecione uma espécie: </label>
+                        <select class="form-select" name="id_especie" [(ngModel)]="rebanho.id_especie">
+                            <option *ngFor="let especie of especies" value="{{ especie.id }}">{{ especie.descricao }}</option>
+                        </select>
+                        <div class="text-danger" *ngIf="validaEspecie">
+                            {{msgValidaEspecie}}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group mb-3">
-                <label class="form-label">Selecione uma propriedade: </label>
-                <select class="form-select" name="id_propriedade" [(ngModel)]="rebanho.id_propriedade">
-                    <option *ngFor="let propriedade of propriedades" value="{{ propriedade.id }}" name="id_propriedade">{{ propriedade.nome_propriedade }}</option>  
-                </select>
-                <div class="text-danger" *ngIf="validaPropriedade">
-                    {{msgValidaPropriedade}}
-                </div>
-            </div>
-            <div class="form-group mb-3">
-                <label class="form-label">Selecione uma espécie: </label>
-                <select class="form-select" name="id_especie" [(ngModel)]="rebanho.id_especie">
-                    <option *ngFor="let especie of especies" value="{{ especie.id }}">{{ especie.descricao }}</option>
-                </select>
-                <div class="text-danger" *ngIf="validaEspecie">
-                    {{msgValidaEspecie}}
-                </div>
-            </div>
-            <div class="form-group mb-3">
-                <label class="form-label">Quantidade de animais:</label>
-                <input class="form-control" type="number" name="qtde_total" [(ngModel)]="rebanho.qtde_total">
-                <div class="text-danger" *ngIf="validaQtdeAnimais">
-                    {{msgValidaQtdeAnimais}}
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Selecione uma propriedade: </label>
+                        <select class="form-select" name="id_propriedade" [(ngModel)]="rebanho.id_propriedade">
+                            <option *ngFor="let propriedade of propriedades" value="{{ propriedade.id }}" name="id_propriedade">{{ propriedade.nome_propriedade }}</option>  
+                        </select>
+                        <div class="text-danger" *ngIf="validaPropriedade">
+                            {{msgValidaPropriedade}}
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Quantidade de animais:</label>
+                        <input class="form-control" type="number" name="qtde_total" [(ngModel)]="rebanho.qtde_total">
+                        <div class="text-danger" *ngIf="validaQtdeAnimais">
+                            {{msgValidaQtdeAnimais}}
+                        </div>
+                    </div>
                 </div>
             </div>
             <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>
-            <button (click)="save()" class="btn btn-outline-success mx-3">Salvar</button>
+            <button (click)="save()" class="btn btn-outline-primary mx-3">Cadastrar</button>
         </form>
     </div>
 </div>
