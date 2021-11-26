@@ -21,14 +21,11 @@ export class ProdutorService {
   }
 
   GetCpf(cpf: string): Observable<any>{
-    return this.http.get(API + 'cpf=' + cpf)
+    return this.http.get(API + 'cpf/' + cpf)
   }
 
   ValidaCpf(cpf: string): Observable<any>{
-    return this.http.get(API + 'validacpf=' + cpf)
-  }
-  GetUsuario(id: number): Observable<Produtor>{
-    return this.http.get<Produtor>(API + 'usuario=' + id)
+    return this.http.get(API + 'validacpf/' + cpf)
   }
 
   Add(produtor: Produtor): Observable<Produtor>{

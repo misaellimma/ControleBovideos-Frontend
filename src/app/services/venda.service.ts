@@ -17,11 +17,11 @@ export class VendaService {
   }
 
   GetCompra(id: number): Observable<any>{
-    return this.http.get(API + 'compra=' + id)
+    return this.http.get(API + 'compra/' + id)
   }
 
   GetVenda(id: number): Observable<any>{
-    return this.http.get(API + 'venda=' + id)
+    return this.http.get(API + 'venda/' + id)
   }
 
   GetId(id: number): Observable<any>{

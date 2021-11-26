@@ -21,7 +21,7 @@ export class RegistrovacinaService {
   }
 
   GetPropriedade(idpropriedade: number): Observable<any>{
-    return this.http.get(API + "propriedade=" + idpropriedade)
+    return this.http.get(API + "propriedade/" + idpropriedade)
   }
 
   Add(registrovacina: RegistroVacina): Observable<RegistroVacina>{

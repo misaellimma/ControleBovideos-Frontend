@@ -21,14 +21,14 @@ export class PropriedadeService {
   }
 
   GetInscricao(inscricao: string): Observable<any>{
-    return this.http.get(API + 'inscricao=' + inscricao)
+    return this.http.get(API + 'inscricao/' + inscricao)
   }
   GetValidaInscricao(inscricao: string): Observable<any>{
-    return this.http.get(API + 'validainscricao=' + inscricao)
+    return this.http.get(API + 'validainscricao/' + inscricao)
   }
 
   GetProdutor(idprodutor: number): Observable<any>{
-    return this.http.get(API + 'idprodutor=' + idprodutor)
+    return this.http.get(API + 'idprodutor/' + idprodutor)
   }
 
   Add(propriedade: Propriedade): Observable<Propriedade>{
