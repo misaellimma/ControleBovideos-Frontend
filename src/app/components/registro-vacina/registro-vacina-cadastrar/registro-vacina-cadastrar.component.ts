@@ -31,6 +31,7 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   msgValidaVacina = ""
   msgValidaData = ""
   msgValidaQtde = ""
+  msgErro = ""
   
   
   propriedade = new Propriedade
@@ -54,7 +55,6 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
 
   getInscricao(){
     this.validaInscricao = false
-    console.log(this.propriedade);
     
     if(this.propriedade.inscricao_estadual == ""){
       this.validaInscricao = true
@@ -76,7 +76,6 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
     this.rebanhoService.GetPropriedade(id).subscribe(
       data => {
         this.rebanhos = data
-        console.log(data)
       }
     )
   }
@@ -100,20 +99,14 @@ export class RegistroVacinaCadastrarComponent implements OnInit {
   postRegistro(){
     this.registroVacina.id_rebanho = Number(this.registroVacina.id_rebanho)
     this.registroVacina.id_vacina = Number(this.registroVacina.id_vacina)
-    //let data = new Date                         //2021-11-22T15:53:53.15
-    //this.registroVacina.data = formatDate(data, 'yyyy-MM-ddThh:mm:ss', 'en-US')
 
-    console.log(this.registroVacina);
     this.service.Add(this.registroVacina).subscribe(
       data => {
-        console.log(data);
         this.voltar()
-
       },
       error =>{
-        alert(error.error)
-        console.log(error);
-        
+        this.erro = true
+        this.msgErro = error.error
       }
     )
   }

@@ -35,7 +35,7 @@ export class PropriedadeComponent implements OnInit {
       window.location.reload()
       sessionStorage.setItem("reload", "false")
     }
-    this.getAll()
+    this.getAll("onload")
   }
 
   getInscricao(inscricao:string){
@@ -51,15 +51,19 @@ export class PropriedadeComponent implements OnInit {
       })
   }
 
-  getAll(){
+  getAll(str:any){
     this.propriedadeService.get().subscribe(
       data => {
         this.propriedades = data
         if(this.propriedades.length > 0){
           this.mostrar = true
         }else{
-          this.erro = true
-          this.errorMessage = "Não existe propriedade cadastrada"
+          if(str == "onload"){
+            this.erro = false
+          }else{
+            this.erro = true
+            this.errorMessage = "Não existe propriedade cadastrada"
+          }
         }
       })
     
@@ -78,7 +82,7 @@ export class PropriedadeComponent implements OnInit {
     this.erro = false
     this.inscricao = this.form.value
     if(this.form.invalid){
-      this.getAll()
+      this.getAll("pesquisar")
     }else{
       this.getInscricao(this.inscricao.inscricao)    
     }

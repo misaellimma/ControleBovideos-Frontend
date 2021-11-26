@@ -44,15 +44,7 @@ export class AnimalDetalhesComponent implements OnInit {
     this.service.GetId(id).subscribe(
       data => {
         this.rebanho = data
-        console.log(data);
       }
-    )
-  }
-
-  delete(){
-    const id = Number(this.route.snapshot.paramMap.get('id'))
-    this.service.Delete(id).subscribe(
-      data => console.log(data)
     )
   }
 

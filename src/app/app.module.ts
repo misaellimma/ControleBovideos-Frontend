@@ -21,6 +21,7 @@ import { RegistroVacinaCadastrarComponent } from './components/registro-vacina/r
 import { RegistroVacinaDetalhesComponent } from './components/registro-vacina/registro-vacina-detalhes/registro-vacina-detalhes.component';
 import { VendaVenderComponent } from './components/venda/venda-vender/venda-vender.component';
 import { VendaDetalhesComponent } from './components/venda/venda-detalhes/venda-detalhes.component';
+import { InicioComponent } from './components/inicio/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { VendaDetalhesComponent } from './components/venda/venda-detalhes/venda-
     RegistroVacinaCadastrarComponent,
     RegistroVacinaDetalhesComponent,
     VendaVenderComponent,
-    VendaDetalhesComponent
+    VendaDetalhesComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

@@ -78,24 +78,17 @@ export class VendaVenderComponent implements OnInit {
     if(this.validaForm())
     {
       this.postVenda()
-    }
-    
-    console.log(this.venda);
-    
+    }    
   }
 
   postVenda(){
     this.service.Add(this.venda).subscribe(
       data => {
-        console.log(data)    
         this.voltar()    
       },
       error => {
-        //alert(error.error)
         this.msgErro = error.error
         this.erro = true
-        console.log(error)
-        
       }
     )
   }
@@ -141,7 +134,6 @@ export class VendaVenderComponent implements OnInit {
         this.getpropriedades(str, data.id)
       },
       error => {
-        console.log(error)
         if(str == "origem"){
           this.msgValidaCpfOrigem = error.error
           this.validaCpfOrigem = true

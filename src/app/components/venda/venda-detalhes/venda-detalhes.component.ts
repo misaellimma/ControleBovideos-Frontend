@@ -73,7 +73,7 @@ export class VendaDetalhesComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'))
 
     this.service.Delete(id).subscribe(
-      data => console.log(data),
+      data => {},
       error => {
         this.erro = true
         this.msgErro = error.error

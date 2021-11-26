@@ -51,7 +51,6 @@ export class PropriedadeCadastrarComponent implements OnInit {
       this.produtorService.GetCpf(this.produtor.cpf).subscribe(
         data => this.produtor = data,
         error => {
-          console.log(error)
           this.msgValidaCpf = error.error
           this.validaCpf = true
         })
@@ -60,15 +59,12 @@ export class PropriedadeCadastrarComponent implements OnInit {
 
   verificaInscricao(){
     this.validaInscricao = false
-    console.log(this.propriedade);
     
     if(this.propriedade.inscricao_estadual.length > 0){
       this.service.GetValidaInscricao(this.propriedade.inscricao_estadual).subscribe(
         data => {
-          console.log(data);
         },
         error => {
-          console.log(error)
           this.msgValidaInscricao = error.error
           this.validaInscricao = true
         })
@@ -99,8 +95,8 @@ export class PropriedadeCadastrarComponent implements OnInit {
 
   Post(propriedade: Propriedade){
     this.service.Add(propriedade).subscribe(
-      data => console.log(data)
-       )
+      data => {}
+      )
   }
   
   validaForm():boolean{

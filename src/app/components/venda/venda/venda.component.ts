@@ -61,9 +61,7 @@ export class VendaComponent implements OnInit {
           this.erro = true
         }else{
           this.mostrar = true
-        }
-        console.log(data);
-        
+        }        
       }
     )
   }
@@ -73,7 +71,6 @@ export class VendaComponent implements OnInit {
     this.service.GetVenda(id).subscribe(
       data => {
         this.vendas = data
-        console.log(data);
         if(this.vendas.length == 0){
           this.msgErro = "Este produtor não possui vendas!"
           this.erro = true
@@ -86,7 +83,6 @@ export class VendaComponent implements OnInit {
 
   verificaCpf(str:string){
     this.erro = false
-    console.log(str);
     if(this.produtor.cpf == ""){
       this.msgErro = "O campo não pode estar vazio!"
       this.erro = true
@@ -94,9 +90,7 @@ export class VendaComponent implements OnInit {
     
     if(this.produtor.cpf.length > 0){
       this.produtorService.GetCpf(this.produtor.cpf).subscribe(
-        data => {
-          console.log(data.id);
-          
+        data => {          
           this.produtor = data
           if(str == "compra"){
             this.getCompras(data.id)
@@ -105,14 +99,9 @@ export class VendaComponent implements OnInit {
           }
         },
         error => {
-          console.log(error)
           this.msgErro = error.error
           this.erro = true
         })
       }
-  }
-
-  back(){
-    this.location.back()
   }
 }

@@ -45,9 +45,7 @@ export class RegistroVacinaDetalhesComponent implements OnInit {
 
     this.service.GetId(id).subscribe(
       data => {
-        this.registroVacina = data
-        console.log(data)
-        
+        this.registroVacina = data        
       }
     )
   }
@@ -72,5 +70,4 @@ export class RegistroVacinaDetalhesComponent implements OnInit {
       this.location.back()
     }, 500);
   }
-
 }

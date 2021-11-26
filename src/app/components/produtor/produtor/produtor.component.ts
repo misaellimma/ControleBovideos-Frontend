@@ -33,18 +33,22 @@ export class ProdutorComponent implements OnInit {
       window.location.reload()
       sessionStorage.setItem("reload", "false")
     }
-    this.getAll()
+    this.getAll("onload")
   }
   
-  getAll(){
+  getAll(str:any){
     this.service.get().subscribe(
       data => {
         this.produtores = data
         if(this.produtores.length != 0){
           this.mostrar = true
         }else{
-          this.erro = true
-          this.errorMessage = "Não existe produtor cadastrado!"
+          if(str == "onload"){
+            this.erro = false
+          }else{
+            this.erro = true
+            this.errorMessage = "Não existe produtor cadastrado!"
+          }
         }
       })
   }
@@ -69,7 +73,7 @@ export class ProdutorComponent implements OnInit {
     this.erro = false
     this.cpf = this.form.value
     if(this.form.invalid){
-      this.getAll()
+      this.getAll("pesquisar")
     }else{
       this.getCpf(this.cpf.cpf)    
     }

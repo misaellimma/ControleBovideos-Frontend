@@ -22,7 +22,6 @@ export class AnimalCadastrarComponent implements OnInit {
   produtor = new Produtor
   rebanho = new Rebanho
 
-  mostrar: boolean = false
   validaPropriedade:boolean = false
   validaEspecie:boolean = false
   validaCpf:boolean = false
@@ -64,16 +63,11 @@ export class AnimalCadastrarComponent implements OnInit {
     }else{
     this.produtorService.GetCpf(this.produtor.cpf).subscribe(
       data => {
-        this.produtor = data
-        console.log(data.id);
-        
+        this.produtor = data        
         this.getPropriedades(Number(data.id))
-        this.mostrar = true
       },
       error => {
-        this.msgValidaCpf = error.error
-        console.log(error.error);
-        
+        this.msgValidaCpf = error.error        
         this.validaCpf = true
       })
     }
@@ -90,10 +84,8 @@ export class AnimalCadastrarComponent implements OnInit {
   postRebanho(){
     this.rebanho.id_especie = Number(this.rebanho.id_especie)
     this.rebanho.id_propriedade = Number(this.rebanho.id_propriedade)
-    console.log(this.rebanho);
     this.service.Add(this.rebanho).subscribe(
       data => {
-        console.log(data)
       },
       error => {
         console.log(error)

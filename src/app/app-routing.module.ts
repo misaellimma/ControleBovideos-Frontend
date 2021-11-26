@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnimalCadastrarComponent } from './components/animal/animal-cadastrar/animal-cadastrar.component';
 import { AnimalDetalhesComponent } from './components/animal/animal-detalhes/animal-detalhes.component';
 import { AnimalComponent } from './components/animal/animal/animal.component';
+import { InicioComponent } from './components/inicio/inicio/inicio.component';
 import { ProdutorCadastrarComponent } from './components/produtor/produtor-cadastrar/produtor-cadastrar.component';
 import { ProdutorDetalhesComponent } from './components/produtor/produtor-detalhes/produtor-detalhes.component';
 import { ProdutorEditarComponent } from './components/produtor/produtor-editar/produtor-editar.component';
@@ -19,6 +20,7 @@ import { VendaVenderComponent } from './components/venda/venda-vender/venda-vend
 import { VendaComponent } from './components/venda/venda/venda.component';
 
 const routes: Routes = [
+  { path: "", component: InicioComponent},
   { path: "animal", component: AnimalComponent},
   { path: "animal-cadastrar", component: AnimalCadastrarComponent},
   { path: "animal/:id", component: AnimalDetalhesComponent},

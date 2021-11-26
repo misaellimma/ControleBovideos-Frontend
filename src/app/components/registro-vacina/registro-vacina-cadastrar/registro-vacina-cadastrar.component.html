@@ -56,6 +56,9 @@
                     </div>
                 </div>
             </div>
+            <div class="alert alert-danger" *ngIf="erro">
+                {{msgErro}}
+            </div>
             <button (click)="voltar()" class="btn btn-outline-dark">Voltar</button>
             <button (click)="save()" class="btn btn-outline-primary mx-3">Cadastrar</button>
         </form>

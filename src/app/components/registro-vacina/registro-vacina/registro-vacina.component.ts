@@ -35,7 +35,6 @@ export class RegistroVacinaComponent implements OnInit {
 
   getInscricao(){
     this.validaInscricao = false
-    console.log(this.propriedade);
     
     if(this.propriedade.inscricao_estadual == ""){
       this.validaInscricao = true
@@ -62,9 +61,7 @@ export class RegistroVacinaComponent implements OnInit {
         }else{
           this.validaInscricao = true
           this.msgValidaInscricao = "Sem registros de vacinação!"
-        }
-        console.log(data);
-        
+        }        
       }
     )
   }

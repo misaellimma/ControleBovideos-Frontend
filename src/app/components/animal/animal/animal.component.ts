@@ -48,7 +48,6 @@ export class AnimalComponent implements OnInit {
           this.getRebanho(data.id)
         },
         error => {
-          console.log(error);
           this.errorMessage = error.error,
           this.erro = true
         })
@@ -70,7 +69,6 @@ export class AnimalComponent implements OnInit {
       data => {
         this.rebanhos = data
         if(this.rebanhos.length != 0){
-          console.log(data);
           this.ocultar = true
         }else{
           this.erro = true

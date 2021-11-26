@@ -81,7 +81,7 @@ export class PropriedadeEditarComponent implements OnInit {
 
   update(id: number, propriedade:Propriedade){
     this.service.Update(id, this.propriedade).subscribe(
-      data => console.log(data),
+      data => {},
       error => console.log(error)
     )
   }
