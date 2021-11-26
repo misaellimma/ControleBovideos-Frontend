@@ -24,6 +24,11 @@ export class RegistrovacinaService {
     return this.http.get(API + "propriedade/" + idpropriedade)
   }
 
+  GetRebanho(idrebanho: number): Observable<any>{
+    return this.http.get(API + "rebanho/" + idrebanho)
+  }
+
+
   Add(registrovacina: RegistroVacina): Observable<RegistroVacina>{
     return this.http.post<RegistroVacina>(API, registrovacina);
   }

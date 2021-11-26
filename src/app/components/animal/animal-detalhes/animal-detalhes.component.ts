@@ -10,6 +10,7 @@ import { RebanhoService } from 'src/app/services/rebanho.service';
 import { RegistrovacinaService } from 'src/app/services/registrovacina.service';
 import { Location } from '@angular/common';
 import { RebanhoOut } from 'src/app/models/rebanhoOut';
+import { RegistroVacinaOut } from 'src/app/models/registroVacinaOut';
 
 
 @Component({
@@ -19,10 +20,12 @@ import { RebanhoOut } from 'src/app/models/rebanhoOut';
 })
 export class AnimalDetalhesComponent implements OnInit {
 
+  mostrar:boolean = false
+
   rebanho = new RebanhoOut
   propriedade = new Propriedade
   produtor = new Produtor
-  registroVacina: RegistroVacina[] = []
+  registroVacinas: RegistroVacinaOut[] = []
 
   constructor(
     private service:RebanhoService,
@@ -44,6 +47,19 @@ export class AnimalDetalhesComponent implements OnInit {
     this.service.GetId(id).subscribe(
       data => {
         this.rebanho = data
+        this.getRegistro(id)
+      }
+    )
+  }
+
+  getRegistro(id:number){
+    this.registroService.GetRebanho(id).subscribe(
+      data => {
+        this.registroVacinas = data
+        if(this.registroVacinas.length > 0){
+          this.mostrar = true
+        }
+        console.log(data);
       }
     )
   }

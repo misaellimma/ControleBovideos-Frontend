@@ -29,7 +29,9 @@
             <td> {{ propriedade.nome_propriedade }}</td>
             <td>| {{ propriedade.inscricao_estadual }}</td>
             <td class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="propriedade/{{ propriedade.id }}" class="btn btn-outline-dark btn-sm">Detalhes</a>
+                <a href="propriedade/{{ propriedade.id }}">
+                    <img src="assets/img/info.png" width="25" alt="Detalhes">
+                </a>
             </td>
         </tr>  
       </tbody>
